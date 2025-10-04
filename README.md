@@ -6,7 +6,7 @@ Students: Dylan Lott & Brandon Weathers
 Modern technology allows the protection of sensitive information.​ 
 Naturally, the presence of value leads to people with malicious intent.​
 
-_Our Research Goal:_
+<u>Our Research Goal:</u>
 <br>
 Develop an algorithm to detect malicious users using various metrics including the longest common substring for multiple strings algorithm.​
 <br>
