@@ -3,10 +3,9 @@ Advisor: Dr. Yilian Zhang
 <br>
 Students: Dylan Lott & Brandon Weathers
 ## 💡 <!-- lightbulb --> Project Description 
-Modern technology allows the protection of sensitive information.​ 
-Naturally, the presence of value leads to people with malicious intent.​
+Modern technology allows the protection of sensitive information.​ Naturally, the presence of value leads to people with malicious intent.​
 
-<u>Our Research Goal:</u>
+**Our Research Goal:**
 <br>
 Develop an algorithm to detect malicious users using various metrics including the longest common substring for multiple strings algorithm.​
 <br>
