@@ -4,12 +4,19 @@ Advisor: Dr. Yilian Zhang
 Students: Dylan Lott & Brandon Weathers
 ## 💡 <!-- lightbulb --> Project Description 
 Modern technology allows the protection of sensitive information.​ Naturally, the presence of value leads to people with malicious intent.​
-
+<br>
+Currently, the file EPSB contains methods used to calculate the CR for a given set of passwords that all belong to a single user.
 **Our Research Goal:**
 <br>
 Develop an algorithm to detect malicious users using various metrics including the longest common substring for multiple strings algorithm.​
 <br>
 This is a college project and is not intended for serious use.
+
+## 🏃 <!-- running --> How to Run
+This EPSB class is demonstrated with the EPSB_CLI and EPSB_GUI classes. To run either class, please fork this repo, compile all files ("javac *.java"), and run either "java EPSB_CLI" or "java EPSB_GUI".
+<br>
+Included in this repo are multiple cvs files that (some of which are generated) that represent a users' possible passwords.
+
 ## 📫  <!-- mail box --> Contacts
 <table>
     <tr>
