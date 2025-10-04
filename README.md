@@ -3,10 +3,10 @@ Advisor: Dr. Yilian Zhang
 <br>
 Students: Dylan Lott & Brandon Weathers
 ## 💡 <!-- lightbulb --> Project Description 
-Modern technology allows the protection of sensitive information.​
+Modern technology allows the protection of sensitive information.​ 
 Naturally, the presence of value leads to people with malicious intent.​
 
-_Our Research Goal:_
+<u>Our Research Goal:</u>
 <br>
 Develop an algorithm to detect malicious users using various metrics including the longest common substring for multiple strings algorithm.​
 <br>
@@ -26,6 +26,7 @@ This is a college project and is not intended for serious use.
             Dylan Lott
         </td>
         <td>
+            drlott@usca.edu
         </td>
     </tr>
     <tr>
