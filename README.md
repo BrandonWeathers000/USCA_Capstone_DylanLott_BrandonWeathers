@@ -12,7 +12,7 @@ Develop an algorithm to detect malicious users using various metrics including t
 This EPSB class is demonstrated with the EPSB_CLI and EPSB_GUI classes. To run either class, please fork this repo, compile all files ("javac *.java"), and run either "java EPSB_CLI" or "java EPSB_GUI".
 <br>
 <br>
-Included in this repo are multiple cvs files that (some of which are generated) that represent a users' possible passwords.
+Included in this repo are multiple cvs files that (some of which are generated) that represent a users' possible passwords. You can see them if you run "java TextParser".
 
 ## 📫  <!-- mail box --> Contacts
 <table>
