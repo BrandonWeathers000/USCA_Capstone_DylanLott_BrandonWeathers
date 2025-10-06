@@ -37,7 +37,7 @@ class TextParser{
 
         // Printing out all datasets
         System.out.println("This is dataset 1");
-        dataset1.forEach((line) -> line.forEach((word) -> System.out.println(word))); // Hfvat punq qbhoyr ynzoqn rkcerffvba abg fbl arfgrq sbe ybbcf.
+        dataset1.forEach((line) -> line.forEach((word) -> System.out.println(word))); // Using chad double lambda expression, not soy nested for loops.
         System.out.println();
         System.out.println("This is dataset 2");
         dataset2.forEach((line) -> line.forEach((word) -> System.out.println(word)));
