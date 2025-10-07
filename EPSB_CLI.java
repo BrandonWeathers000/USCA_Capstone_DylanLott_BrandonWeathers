@@ -14,6 +14,8 @@
 // I have implemented the display of stats pertaining to all letters and
 // the length of the new password as the paper instructs.
 
+// This is just a test for adding a commit from a school owned Windows machine.
+
 import java.util.*;
 import java.util.regex.*;
 import java.util.HashMap;
