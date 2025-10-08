@@ -31,6 +31,9 @@ public class EPSB_CLI{
             System.out.println("Please enter a password: ");
             currentPassword = ob.nextLine();
 
+            System.out.println("\033[H\033[2J");
+            System.out.flush();
+
             EPSB1.addNewPassword(currentPassword);
 
             // System.out.println("There are " + countCapitalsInWord(currentPassword)    + " capital(s) in the password "           + currentPassword);
@@ -38,47 +41,53 @@ public class EPSB_CLI{
             // System.out.println("There are " + countDigits(currentPassword)            + " digit(s) in the password "             + currentPassword);
             // System.out.println("There are " + countSpecialCharacters(currentPassword) + " special character(s) in the password " + currentPassword);
 
-            System.out.println("The current passwords are: " +                         EPSB1.passwords .toString());
-            System.out.println("The coresponding number of capitals are: " +           EPSB1.capitals  .toString());
-            System.out.println("The coresponding number of lower case letters are: " + EPSB1.lowerCase .toString());
-            System.out.println("The coresponding number of numbers are: " +            EPSB1.numbers   .toString());
-            System.out.println("The coresponding number of symbols are: " +            EPSB1.symbols   .toString());
+            // System.out.println("The current passwords are: " +                         EPSB1.passwords .toString());
+            // System.out.println("The coresponding number of capitals are: " +           EPSB1.capitals  .toString());
+            // System.out.println("The coresponding number of lower case letters are: " + EPSB1.lowerCase .toString());
+            // System.out.println("The coresponding number of numbers are: " +            EPSB1.numbers   .toString());
+            // System.out.println("The coresponding number of symbols are: " +            EPSB1.symbols   .toString());
 
-            System.out.println("The current minimum number of capitals are: " + EPSB1.getMin(     EPSB1.capitals));
-            System.out.println("The current max number of capitals are: " +     EPSB1.getMax(     EPSB1.capitals));
-            System.out.println("The current average number of capitals are: " + EPSB1.getAverage( EPSB1.capitals));
-            System.out.println("The current median number of capitals are: " +  EPSB1.getMedian(  EPSB1.capitals));
-            System.out.println("The current mode number of capitals are: " +    EPSB1.getMode(    EPSB1.capitals));
+            System.out.println("CAPITALS:");
+            System.out.println("     Minimum number of capitals are: " + EPSB1.getMin(     EPSB1.capitals));
+            System.out.println("     Max number of capitals are: " +     EPSB1.getMax(     EPSB1.capitals));
+            System.out.printf ("     Average number of capitals are: %.2f\n",  EPSB1.getAverage( EPSB1.capitals));
+            System.out.println("     Median number of capitals are: " +  EPSB1.getMedian(  EPSB1.capitals));
+            System.out.println("     Mode number of capitals are: " +    EPSB1.getMode(    EPSB1.capitals));
 
-            System.out.println("The current minimum number of lower case letters are: " + EPSB1.getMin(     EPSB1.lowerCase));
-            System.out.println("The current max number of lower case letters are: " +     EPSB1.getMax(     EPSB1.lowerCase));
-            System.out.println("The current average number of lower case letters are: " + EPSB1.getAverage( EPSB1.lowerCase));
-            System.out.println("The current median number of lower case letters are: " +  EPSB1.getMedian(  EPSB1.lowerCase));
-            System.out.println("The current mode number of lower case letters are: " +    EPSB1.getMode(    EPSB1.lowerCase));
+            System.out.println("LOWER CASE:");
+            System.out.println("     Minimum number of lower case letters are: " + EPSB1.getMin(     EPSB1.lowerCase));
+            System.out.println("     Max number of lower case letters are: " +     EPSB1.getMax(     EPSB1.lowerCase));
+            System.out.printf ("     Average number of lower case letters are: %.2f\n", EPSB1.getAverage( EPSB1.lowerCase));
+            System.out.println("     Median number of lower case letters are: " +  EPSB1.getMedian(  EPSB1.lowerCase));
+            System.out.println("     Mode number of lower case letters are: " +    EPSB1.getMode(    EPSB1.lowerCase));
 
-            System.out.println("The current minimum number of letters are: " + EPSB1.getMin(     EPSB1.letters));
-            System.out.println("The current max number of letters are: " +     EPSB1.getMax(     EPSB1.letters));
-            System.out.println("The current average number of letters are: " + EPSB1.getAverage( EPSB1.letters));
-            System.out.println("The current median number of letters are: " +  EPSB1.getMedian(  EPSB1.letters));
-            System.out.println("The current mode number of letters are: " +    EPSB1.getMode(    EPSB1.letters));
+            System.out.println("LETTERS:");
+            System.out.println("     Minimum number of letters are: " + EPSB1.getMin(     EPSB1.letters));
+            System.out.println("     Max number of letters are: " +     EPSB1.getMax(     EPSB1.letters));
+            System.out.printf ("     Average number of letters are: %.2f\n", EPSB1.getAverage( EPSB1.letters));
+            System.out.println("     Median number of letters are: " +  EPSB1.getMedian(  EPSB1.letters));
+            System.out.println("     Mode number of letters are: " +    EPSB1.getMode(    EPSB1.letters));
 
-            System.out.println("The current minimum number of numbers are: " + EPSB1.getMin(     EPSB1.numbers));
-            System.out.println("The current max number of numbers are: " +     EPSB1.getMax(     EPSB1.numbers));
-            System.out.println("The current average number of numbers are: " + EPSB1.getAverage( EPSB1.numbers));
-            System.out.println("The current median number of numbers are: " +  EPSB1.getMedian(  EPSB1.numbers));
-            System.out.println("The current mode number of numbers are: " +    EPSB1.getMode(    EPSB1.numbers));
+            System.out.println("NUMBERS:");
+            System.out.println("     Minimum number of numbers are: " + EPSB1.getMin(     EPSB1.numbers));
+            System.out.println("     Max number of numbers are: " +     EPSB1.getMax(     EPSB1.numbers));
+            System.out.printf ("     Average number of numbers are: %.2f\n", EPSB1.getAverage( EPSB1.numbers));
+            System.out.println("     Median number of numbers are: " +  EPSB1.getMedian(  EPSB1.numbers));
+            System.out.println("     Mode number of numbers are: " +    EPSB1.getMode(    EPSB1.numbers));
 
-            System.out.println("The current minimum number of symbols are: " + EPSB1.getMin(     EPSB1.symbols));
-            System.out.println("The current max number of symbols are: " +     EPSB1.getMax(     EPSB1.symbols));
-            System.out.println("The current average number of symbols are: " + EPSB1.getAverage( EPSB1.symbols));
-            System.out.println("The current median number of symbols are: " +  EPSB1.getMedian(  EPSB1.symbols));
-            System.out.println("The current mode number of symbols are: " +    EPSB1.getMode(    EPSB1.symbols));
+            System.out.println("SYMBOLS:");
+            System.out.println("     Minimum number of symbols are: " + EPSB1.getMin(     EPSB1.symbols));
+            System.out.println("     Max number of symbols are: " +     EPSB1.getMax(     EPSB1.symbols));
+            System.out.printf ("     Average number of symbols are: %.2f\n", EPSB1.getAverage( EPSB1.symbols));
+            System.out.println("     Median number of symbols are: " +  EPSB1.getMedian(  EPSB1.symbols));
+            System.out.println("     Mode number of symbols are: " +    EPSB1.getMode(    EPSB1.symbols));
 
-            System.out.println("The current minimum length is: " + EPSB1.getMin(     EPSB1.length));
-            System.out.println("The current max length is: " +     EPSB1.getMax(     EPSB1.length));
-            System.out.println("The current average length is: " + EPSB1.getAverage( EPSB1.length));
-            System.out.println("The current median length is: " +  EPSB1.getMedian(  EPSB1.length));
-            System.out.println("The current mode length is: " +    EPSB1.getMode(    EPSB1.length));
+            System.out.println("LENGTH:");
+            System.out.println("     Minimum length is: " + EPSB1.getMin(     EPSB1.length));
+            System.out.println("     Max length is: " +     EPSB1.getMax(     EPSB1.length));
+            System.out.printf ("     Average length is: %.2f\n", EPSB1.getAverage( EPSB1.length));
+            System.out.println("     Median length is: " +  EPSB1.getMedian(  EPSB1.length));
+            System.out.println("     Mode length is: " +    EPSB1.getMode(    EPSB1.length));
         }
     }
 }

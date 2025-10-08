@@ -79,8 +79,8 @@ class EPSB{
         return max;
     }
 
-    int getAverage(ArrayList<Integer> list){
-        int average = 0;
+    double getAverage(ArrayList<Integer> list){
+        double average = 0;
         for(int index = 0; index < list.size(); index++){
             average += list.get(index);
         }
