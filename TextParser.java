@@ -3,8 +3,7 @@
 
 // This class simply reads throuhg a given CVS files and creates a
 // 2D ArrayList to store every word.
-// Because of the way the CSV files are organized, the username is first, followed by
-// its associated passwords.
+// Because of the way the CSV files are organized, each line coresponds on a single user.
 
 import java.util.*;
 import java.io.*;
