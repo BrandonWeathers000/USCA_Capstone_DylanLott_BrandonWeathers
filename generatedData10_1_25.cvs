@@ -1,27 +1,3 @@
-username,email,plaintext_password,created_at
-alice.smith,alice.smith@example.com,Password123!,2018-06-12
-bob.jenkins,bob.jenkins@example.net,summer2020,2019-07-02
-carol89,carol89@example.org,iloveCats,2016-11-21
-david,david@example.com,letmein,2013-03-09
-eve.admin,eve.admin@example.com,Adm1n$2024,2021-01-15
-frank.k,frank.k@example.org,CorrectHorseBatteryStaple,2020-05-30,
-grace90,grace90@example.com,pa$$w0rd,2014-12-02
-harry,harry@example.net,p@ssword1,2012-08-14
-irene_w,irene_w@example.com,Tr0ub4dor&3,2017-09-19
-jackson,jackson@example.org,12345678,2011-01-01
-kate.l,kate.l@example.com,Sunshine!,2019-04-08
-louis,louis@example.net,Football#1,2015-10-25
-maria,maria@example.com,Winter2023!,2023-01-10
-nate,nate@example.org,coffeeL0ver,2018-02-02
-olivia,olivia@example.net,0range-Tree,2020-07-11
-peterb,peterb@example.com,Passw0rd!,2016-06-06
-quinn.x,quinn.x@example.com,ilike2code,2019-09-09
-rachel,rachel@example.org,admin1234,2014-05-17
-samuel,samuel@example.com,blink182,2009-03-21
-tina.z,tina.z@example.net,MyDogRex2020,2020-11-30
-uma.u,uma.u@example.com,NoPassword!,2018-08-08
-victor.v,victor.v@example.org,Qwerty!234,2012-12-12
-wendy,wendy@example.com,BlueSky2021,2021-05-05
-xavier,xavier@example.net,Football,2010-09-09
-yara,yara@example.org,P@55w0rd,2017-02-02
-zach,zach@example.com,iloveyou,2008-07-07
+version https://git-lfs.github.com/spec/v1
+oid sha256:3d0c45760879bde9797710dd58a3405790aef324871ae67e5672e87ac98fa4d3
+size 1317
