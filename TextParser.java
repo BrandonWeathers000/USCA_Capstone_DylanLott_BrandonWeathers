@@ -1,4 +1,4 @@
-// Author(s): Brandon Weathers
+// Author(s): Dylan Lott & Brandon Weathers
 // Last updated: 10/05/2025 2:57 PM
 
 // This class simply reads throuhg a given CVS files and creates a

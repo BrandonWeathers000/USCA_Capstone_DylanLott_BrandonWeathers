@@ -1,3 +1,6 @@
+// Author(s): Dylan Lott & Brandon Weathers
+// Last updated: 10/18/2025 4:56 PM
+
 import java.util.*;
 import java.util.regex.*;
 import java.util.HashMap;

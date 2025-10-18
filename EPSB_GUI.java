@@ -1,4 +1,4 @@
-// Author(s): Brandon Weathers
+// Author(s): Dylan Lott & Brandon Weathers
 // Last updated: 9/20/2025 2:10 AM
 
 // This is a very rough GUI version of the EPSB algorithm.
