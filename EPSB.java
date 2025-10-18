@@ -1,4 +1,4 @@
-// Author(s): Brandon Weathers
+// Author(s): Dylan Lott & Brandon Weathers
 // Last updated: 9/20/2025 1:49 AM
 
 // I have created a class that handles the technical parsing and calculation.
