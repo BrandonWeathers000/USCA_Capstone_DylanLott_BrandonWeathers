@@ -12,7 +12,7 @@ class EPSB_Parser{
         // Parsing the CSV into the 2D linked list
         ArrayList<ArrayList<String>> dataset1 = new ArrayList<>(), dataset2 = new ArrayList<>(), dataset3 = new ArrayList<>();
         try{
-            Scanner myScanner1 = new Scanner(new File("DataGeneration9_16_25Part1.cvs"));
+            Scanner myScanner1 = new Scanner(new File("Synthetic300000PwPairsV2.csv"));
             while(myScanner1.hasNextLine()){
                 dataset1.add(getRecordFromLine(myScanner1.nextLine()));
             }
