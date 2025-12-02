@@ -1,5 +1,5 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 11/1/2025 5:01 PM
+// Last updated: 12/2/2025 12:56 PM
 
 // This file is only for testing the speed of the LCSM algorithm.
 // On average this version of my LCSM takes 0.313 seconds.
@@ -33,7 +33,7 @@ class Mini_LCSM_Testing{
             String finialAnswer = CLCSSM(X, Y_1, Y_2, P, m, n_1, n_2, r, M);
         }
         long endTime = System.nanoTime();
-        System.out.println("The LCMS algorithm takes " + (endTime-startTime)/1000000 + " milisecond(s) for 2 entrie(s) 100 times.");
+        System.out.println("The LCMS algorithm takes " + (endTime-startTime)/1000000 + " miliseconds for 2 entries 100 times.");
     }
 
     static String  CLCSSM(String X, String Y_1, String Y_2, String P, int m, int n_1, int n_2, int r, int[][][][] M){
