@@ -91,7 +91,7 @@ class EPSB{
         return mode;
     }
 
-    void getInfo(){
+    public void getInfo(){
         System.out.println("The current passwords are: ");
         this.passwords.forEach((currentPassword) -> {System.out.print(currentPassword + ", ");});
         System.out.println();
@@ -138,7 +138,12 @@ class EPSB{
         System.out.println("     Mode length is: " +                                this.getMode(        this.length));
     }
 
-    void getInfoTesting(){
+
+    public void getInfoTesting(){
+        // System.out.println("The current passwords are: ");
+        // this.passwords.forEach((currentPassword) -> {System.out.print(currentPassword + ", ");});
+        // System.out.println();
+
         this.capitals.get(  0);
         this.capitals.get(  this.capitals.size()-1);
         this.getAverage(    this.capitals);
@@ -157,22 +162,22 @@ class EPSB{
         this.getMedian(     this.letters);
         this.getMode(       this.letters);
 
-        this.numbers.get(   0);
-        this.numbers.get(   this.numbers.size()-1);
-        this.getAverage(    this.numbers);
-        this.getMedian(     this.numbers);
-        this.getMode(       this.numbers);
+        this.numbers.get(    0);
+        this.numbers.get(    this.numbers.size()-1);
+        this.getAverage(     this.numbers);
+        this.getMedian(      this.numbers);
+        this.getMode(        this.numbers);
 
-        this.symbols.get(   0);
-        this.symbols.get(   this.symbols.size()-1);
-        this.getAverage(    this.symbols);
-        this.getMedian(     this.symbols);
-        this.getMode(       this.symbols);
+        this.symbols.get(    0);
+        this.symbols.get(    this.symbols.size()-1);
+        this.getAverage(     this.symbols);
+        this.getMedian(      this.symbols);
+        this.getMode(        this.symbols);
 
-        this.length.get(    0);
-        this.length.get(    this.length.size()-1);
-        this.getAverage(    this.length);
-        this.getMedian(     this.length);
-        this.getMode(       this.length);
+        this.length.get(     0);
+        this.length.get(     this.length.size()-1);
+        this.getAverage(     this.length);
+        this.getMedian(      this.length);
+        this.getMode(        this.length);
     }
 }

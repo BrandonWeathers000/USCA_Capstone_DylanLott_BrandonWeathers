@@ -8,12 +8,10 @@ class TranslatedSuffixTreeTesting{
         long startTime = System.nanoTime();
         for(int index = 0; index < 100; index++){
             TranslatedSuffixTree tree = new TranslatedSuffixTree();
-            System.out.println(tree.lengthOfFirstInput("Password_A#Password_B$"));
             tree.size1 = tree.lengthOfFirstInput("Password_A#Password_B$");
-            System.out.println("Password_A#Password_B$");
             tree.setInputString("Password_A#Password_B$");
             tree.buildSuffixTree();
-            tree.getLongestCommonSubstring();
+            tree.getLongestCommonSubstringTesting();
         }
         long endTime = System.nanoTime();
         System.out.println("The suffix tree algorithm takes " + (endTime-startTime)/1000000 + " miliseconds for 2 entries 100 times.");
