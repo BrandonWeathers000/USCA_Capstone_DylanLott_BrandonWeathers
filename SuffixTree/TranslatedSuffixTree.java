@@ -232,41 +232,40 @@ class TranslatedSuffixTree{
         for(; i < text.length; i++) text[i] = 0;
     }
 
+    public static int lengthOfFirstInput(String input){
+        int suffixLength = 0;
+        for(int index = 0; index < input.length() - 1; index++){
+            if(input.charAt(index) == '#'){
+                return index;
+            }
+        }
+        return -1;
+    }
+
     public static void main(String[] args){
         try{
-            Scanner myScanner0 = new Scanner(new File("SyntheticMatched.csv"));
-            System.out.println("Reading in file: SyntheticMatched.csv...");
+            // Scanner myScanner0 = new Scanner(new File("SyntheticMatched.csv"));
+            // System.out.println("Reading in file: SyntheticMatched.csv...");
 
-            TranslatedSuffixTree tree = new TranslatedSuffixTree();
-            tree.size1 = 7; // must be the length of the last string
-            System.out.println("1233210m.m#1111$");
-            tree.setInputString("1233210m.m#1111$");
-            tree.buildSuffixTree();
-            tree.getLongestCommonSubstring();
+            Scanner myScanner0 = new Scanner(new File("Synthetic300000PwPairsV2.csv"));
+            System.out.println("Reading in file: Synthetic300000PwPairsV2.csv...");
+
+            while(myScanner0.hasNextLine()){
+                String currentLine = myScanner0.nextLine();
+
+                TranslatedSuffixTree tree = new TranslatedSuffixTree();
+                System.out.print(currentLine + " → ");
+                // System.out.println("The length of the first input is " + tree.lengthOfFirstInput(currentLine));
+                tree.size1 = tree.lengthOfFirstInput(currentLine);
+                tree.setInputString(currentLine);
+                tree.buildSuffixTree();
+                tree.getLongestCommonSubstring();
+            }
+
             System.out.println("File read complete ✓");
             System.out.println("The mean length of the substring is: " + (meanLength / totalEntries));
-
         }catch(FileNotFoundException e){
             System.out.println("File not found.");
         }
-
-        // try{
-        //     Scanner myScanner0 = new Scanner(new File("Synthetic300000PwPairsV2.csv"));
-        //     System.out.println("Reading in file: Synthetic300000PwPairsV2.csv...");
-        //     while(myScanner0.hasNextLine()){
-        //         TranslatedSuffixTree tree = new TranslatedSuffixTree();
-
-        //         tree.size1 = 15;
-        //         System.out.println(myScanner0.nextLine());
-        //         tree.setInputString(myScanner0.nextLine());
-        //         tree.buildSuffixTree();
-        //         tree.getLongestCommonSubstring();
-        //     }
-        //     System.out.println("File read complete ✓");
-        //     System.out.println("The mean length of the substring is: " + (meanLength / totalEntries));
-
-        // }catch(FileNotFoundException e){
-        //     System.out.println("File not found.");
-        // }
     }
 }

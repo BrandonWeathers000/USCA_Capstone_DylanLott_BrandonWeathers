@@ -3,12 +3,15 @@
 
 class TranslatedSuffixTreeTesting{
     public static void main(String[] args){
+
+
         long startTime = System.nanoTime();
         for(int index = 0; index < 100; index++){
             TranslatedSuffixTree tree = new TranslatedSuffixTree();
-            tree.size1 = 4;
-            System.out.println("1233210m.m#1111$");
-            tree.setInputString("1233210m.m#1111$");
+            System.out.println(tree.lengthOfFirstInput("Password_A#Password_B$"));
+            tree.size1 = tree.lengthOfFirstInput("Password_A#Password_B$");
+            System.out.println("Password_A#Password_B$");
+            tree.setInputString("Password_A#Password_B$");
             tree.buildSuffixTree();
             tree.getLongestCommonSubstring();
         }
