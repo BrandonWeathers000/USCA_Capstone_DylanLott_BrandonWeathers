@@ -1,5 +1,5 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 11/1/2025 5:45 PM
+// Last updated: 12/2/2025 12:57 PM
 
 // Just for testing
 
@@ -20,6 +20,6 @@ public class Little_EPSB_CLI_Testing{
                 EPSB1.addNewPassword(currentPassword1);
         long endTime = System.nanoTime();
         EPSB1.getInfoTesting();
-        System.out.println("The EPSB algorithm takes " + (endTime-startTime)/1000000 + " milisecond(s) for 100 entries.");
+        System.out.println("The EPSB algorithm takes " + (endTime-startTime)/1000000 + " miliseconds for 100 entries.");
     }
 }

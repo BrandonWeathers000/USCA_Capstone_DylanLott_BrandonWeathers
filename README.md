@@ -9,7 +9,7 @@ Modern technology allows the protection of sensitive information.​ Naturally, 
 **🎯 Our Research Goal:**
 <br>
 Develop an algorithm to detect malicious users using various metrics including the longest common substring for multiple strings algorithm.​
-## How to Run
+## 🏃 How to Run
 1. git fork https://github.com/BrandonWeathers000/USCA_Capstone_DylanLott_BrandonWeathers.git
 2. cd /USCA_Capstone_DylanLott_BrandonWeathers 
 3. javac *.java
@@ -19,7 +19,7 @@ Develop an algorithm to detect malicious users using various metrics including t
 7. After you are finished viewing desired info, press any key to continue.
 8. If you want to continue querying, return to step 5.
 
-## 🏃 Runing Longest Common Substring
+### Running Longest Common Substring
 This program takes the first two entries from database Synthetic30000PwPairsV2.csv and compares them.
 The testing instructions are as follows.
 1. git fork https://github.com/BrandonWeathers000/USCA_Capstone_DylanLott_BrandonWeathers.git
@@ -27,17 +27,17 @@ The testing instructions are as follows.
 3. javac *.java
 4. java LCSM
 
-## 🔥 Testing the Algirhtm's Speed on Different Machines
-I relised that on some machines the different algorithms dont' scale quite right.
-The following instructions only work on Linux and MacOS (actualy I'm not sure about MacOS).
-- Windows users can manualy run each file which has Testing at the end of its name.
+### 🔥 Testing the Algorithm's Speed on Different Machines
+I realized that on some machines the different algorithms don't scale quite right.
+The following instructions only work on Linux and MacOS (actually I'm not sure about MacOS).
+- Windows users can manually run each file which has Testing at the end of its name.
 - They are located in their respective directories.
 1. git fork https://github.com/BrandonWeathers000/USCA_Capstone_DylanLott_BrandonWeathers.git
 2. cd /USCA_Capstone_DylanLott_BrandonWeathers/
 3. ./TestingScript.sh
 
 ## Contacts
-| Contributer      | Email            | 
+| Contributor      | Email            | 
 |------------------|------------------|
 | Yilian Zhang     | YilianZ@usca.edu |
 | Dylan Lott       | drlott@usca.edu  |

@@ -72,6 +72,7 @@ class EPSB_Parser{
         ArrayList<EPSB> EPSBArrayList1 = new ArrayList<>();
         for(int index = 0; index < dataset1.size(); index++){
             EPSBArrayList1.add(new EPSB());
+
         }
         for(int index = 0; index < EPSBArrayList1.size(); index++){
             for(String currentPassword : dataset1.get(index)){
