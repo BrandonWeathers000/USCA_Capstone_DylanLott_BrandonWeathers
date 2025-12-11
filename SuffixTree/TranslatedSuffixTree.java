@@ -5,9 +5,9 @@ import java.util.*;
 import java.io.*;
 
 class TranslatedSuffixTree{
-    static double totalEntries = 0.00;
-    static double meanLength = 0.00;
-    static final int MAX_CHAR = 1000;
+    public static double totalEntries = 0.00;
+    public static double meanLength = 0.00;
+    public static final int MAX_CHAR = 1000;
 
     static class Node{
         Node[] children = new Node[MAX_CHAR];
@@ -188,23 +188,28 @@ class TranslatedSuffixTree{
         return n.suffixIndex;
     }
 
-    void getLongestCommonSubstring(){
+    // Used to return void
+    String getLongestCommonSubstring(){
+        String result = "";
         int[] maxHeight = new int[] {0};
         int[] substringStartIndex = new int[] {0};
         doTraversal(root, 0, maxHeight, substringStartIndex);
 
         int k;
-        for(k = 0; k < maxHeight[0]; k++) System.out.print(text[k + substringStartIndex[0]]);
+        for(k = 0; k < maxHeight[0]; k++){
+            result = result + text[k + substringStartIndex[0]];
+        }
         if(k == 0){
             System.out.print("No common substring");
             totalEntries++;
         }
         else{
-            System.out.print(", of length: " + (maxHeight[0]));
+            // System.out.print(", of length: " + (maxHeight[0]));
             meanLength += (double) (maxHeight[0]);
             totalEntries++;
         }
-        System.out.println();
+        // System.out.println();
+        return result;
     }
 
     void getLongestCommonSubstringTesting(){
