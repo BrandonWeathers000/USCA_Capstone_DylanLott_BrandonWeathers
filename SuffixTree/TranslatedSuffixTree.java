@@ -246,31 +246,4 @@ class TranslatedSuffixTree{
         }
         return -1;
     }
-
-    public static void main(String[] args){
-        try{
-            // Scanner myScanner0 = new Scanner(new File("SyntheticMatched.csv"));
-            // System.out.println("Reading in file: SyntheticMatched.csv...");
-
-            Scanner myScanner0 = new Scanner(new File("Synthetic300000PwPairsV2.csv"));
-            System.out.println("Reading in file: Synthetic300000PwPairsV2.csv...");
-
-            while(myScanner0.hasNextLine()){
-                String currentLine = myScanner0.nextLine();
-
-                TranslatedSuffixTree tree = new TranslatedSuffixTree();
-                System.out.print(currentLine + " → ");
-                // System.out.println("The length of the first input is " + tree.lengthOfFirstInput(currentLine));
-                tree.size1 = tree.lengthOfFirstInput(currentLine);
-                tree.setInputString(currentLine);
-                tree.buildSuffixTree();
-                tree.getLongestCommonSubstring();
-            }
-
-            System.out.println("File read complete ✓");
-            System.out.println("The mean length of the substring is: " + (meanLength / totalEntries));
-        }catch(FileNotFoundException e){
-            System.out.println("File not found.");
-        }
-    }
 }
