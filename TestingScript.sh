@@ -18,4 +18,6 @@ cd SuffixTree
 javac *.java
 java TranslatedSuffixTreeTesting
 
+java MultipleStringsFinderTesting
+
 cd ..
