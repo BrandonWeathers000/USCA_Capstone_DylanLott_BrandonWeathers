@@ -12,7 +12,7 @@ import java.util.Map;
 public class Little_EPSB_CLI_Testing{
     public static void main (String[] args){
         Scanner ob = new Scanner(System.in);
-        String currentPassword1 = "Password_A#Password_B$";
+        String currentPassword1 = "ancplucaskai99ancplucaskai99$ancplucaskai99ancplucaskai997$";
         EPSB EPSB1 = new EPSB();
 
         long startTime = System.nanoTime();
