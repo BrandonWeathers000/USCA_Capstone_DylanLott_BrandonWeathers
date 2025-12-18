@@ -1,19 +1,44 @@
+// Authors: Dylan Lott & Brandon Weathers
+// Date last updated:  12/17/2025 11:39 PM
+
 import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class MultipleStringsFinder{
+    public static final String COMMA_DELIMITER = ",";
+
     public static void main(String[] args){
-        // String mainInput1 = "abc";
-        // String mainInput2 = "abd";
+        // String mainInput1 = "abXYab";
+        // String mainInput2 = "ablXY";
+        ArrayList<String> craftRiseDataset = new ArrayList<String>();
 
-        // String mainInput1 = "abcXY";
-        // String mainInput2 = "abdXY";
+        BufferedReader reader;
+        try{
+            reader = new BufferedReader(new FileReader("CraftRiseFiltered_35.csv"));
+            String line = reader.readLine();
 
-        String mainInput1 = "abXYab";
-        String mainInput2 = "ablXY";
+            while(line != null){
+                // System.out.println(line);
+                craftRiseDataset.add(line);
+                line = reader.readLine();
+            }
+            reader.close();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
 
-        ArrayList<String> allSubstrings = new ArrayList<String>();
-        recursiveFindLongestCommonSubstring(mainInput1, mainInput2, allSubstrings);
-        allSubstrings.forEach((currentString) -> System.out.println(currentString));
+        for(String currentTwoPasswords : craftRiseDataset){
+            System.out.println("A new password set:");
+            String input0 = currentTwoPasswords.substring(0, findIndexOfFirstString(currentTwoPasswords));
+            String input1 = currentTwoPasswords.substring(findIndexOfFirstString(currentTwoPasswords) + 1, currentTwoPasswords.length() - 1);
+
+            ArrayList<String> allSubstrings = new ArrayList<String>();
+            recursiveFindLongestCommonSubstring(input0, input1, allSubstrings);
+            allSubstrings.forEach((currentString) -> System.out.print(currentString + " "));
+            System.out.println();
+        }
     }
 
     static int findIndexOfFirstString(String input){
@@ -49,7 +74,7 @@ public class MultipleStringsFinder{
     static class TranslatedSuffixTree{
         public static double totalEntries = 0.00;
         public static double meanLength = 0.00;
-        public static final int MAX_CHAR = 1000;
+        public static final int MAX_CHAR = 100000;
 
         static class Node{
             Node[] children = new Node[MAX_CHAR];
@@ -242,7 +267,7 @@ public class MultipleStringsFinder{
                 result = result + text[k + substringStartIndex[0]];
             }
             if(k == 0){
-                System.out.print("No common substring");
+                // System.out.print("No common substring");
                 totalEntries++;
             }
             else{
