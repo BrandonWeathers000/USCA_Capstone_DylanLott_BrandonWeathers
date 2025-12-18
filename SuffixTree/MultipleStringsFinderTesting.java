@@ -1,3 +1,6 @@
+// Authors: Dylan Lott & Brandon Weathers
+// Date last updated:  12/17/2025 11:39 PM
+
 import java.util.ArrayList;
 
 class MultipleStringsFinderTesting{
