@@ -1,5 +1,5 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 11/1/2025  5:55 PM
+// Last updated: 12/17/2025 11:39 PM
 
 import java.util.*;
 import java.io.*;
@@ -15,7 +15,8 @@ class EPSB_Parser{
             dataset0 = new ArrayList<>(),
             dataset1 = new ArrayList<>(),
             dataset2 = new ArrayList<>(),
-            dataset3 = new ArrayList<>();
+            dataset3 = new ArrayList<>(),
+            dataset4 = new ArrayList<>();
         try{
             Scanner myScanner0 = new Scanner(new File("../Datasets/Synthetic300000PwPairsV2.csv"));
             System.out.print("Reading in file: \"Synthetic300000PwPairsV2.csv\"...   ");
@@ -56,9 +57,22 @@ class EPSB_Parser{
         }catch(FileNotFoundException e){
             System.out.println("File not found.");
         }
+        try{
+            Scanner myScanner0 = new Scanner(new File("../Datasets/CraftRiseFiltered_35.csv"));
+            System.out.print("Reading in file: \"CraftRiseFiltered_35.csv\" ...      ");
+            while(myScanner0.hasNextLine()){
+                dataset4.add(getRecordFromLine(myScanner0.nextLine()));
+            }
+            System.out.println("File read complete ✓");
+        }catch(FileNotFoundException e){
+            System.out.println("File not found.");
+        }
+
+        System.out.println("=========================================================================");
 
         // Adding all lines of the CSV to a coresponding EPSB, which then
         // does stastical analysis.
+        System.out.print("Creating list 0 ... ");
         ArrayList<EPSB> EPSBArrayList0 = new ArrayList<>();
         for(int index = 0; index < dataset0.size(); index++){
             EPSBArrayList0.add(new EPSB());
@@ -68,7 +82,9 @@ class EPSB_Parser{
                 EPSBArrayList0.get(index).addNewPassword(currentPassword);
             }
         }
+        System.out.println("list creation done!");
 
+        System.out.print("Creating list 1 ... ");
         ArrayList<EPSB> EPSBArrayList1 = new ArrayList<>();
         for(int index = 0; index < dataset1.size(); index++){
             EPSBArrayList1.add(new EPSB());
@@ -79,7 +95,9 @@ class EPSB_Parser{
                 EPSBArrayList1.get(index).addNewPassword(currentPassword);
             }
         }
+        System.out.println("list creation done!");
 
+        System.out.print("Creating list 2 ... ");
         ArrayList<EPSB> EPSBArrayList2 = new ArrayList<>();
         for(int index = 0; index < dataset2.size(); index++){
             EPSBArrayList2.add(new EPSB());
@@ -89,7 +107,9 @@ class EPSB_Parser{
                 EPSBArrayList2.get(index).addNewPassword(currentPassword);
             }
         }
+        System.out.println("list creation done!");
 
+        System.out.print("Creating list 3 ... ");
         ArrayList<EPSB> EPSBArrayList3 = new ArrayList<>();
         for(int index = 0; index < dataset3.size(); index++){
             EPSBArrayList3.add(new EPSB());
@@ -99,6 +119,19 @@ class EPSB_Parser{
                 EPSBArrayList3.get(index).addNewPassword(currentPassword);
             }
         }
+        System.out.println("list creation done!");
+
+        System.out.print("Creating list 4 ... ");
+        ArrayList<EPSB> EPSBArrayList4 = new ArrayList<>();
+        for(int index = 0; index < dataset4.size(); index++){
+            EPSBArrayList4.add(new EPSB());
+        }
+        for(int index = 0; index < EPSBArrayList4.size(); index++){
+            for(String currentPassword : dataset4.get(index)){
+                EPSBArrayList4.get(index).addNewPassword(currentPassword);
+            }
+        }
+        System.out.println("list creation done!");
 
         while(true){
             System.out.println("=========================================================================");
