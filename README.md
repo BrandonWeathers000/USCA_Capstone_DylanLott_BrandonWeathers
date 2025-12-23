@@ -23,7 +23,7 @@ The following instructions only work on Linux and MacOS (actually I'm not sure a
 For reasons that I don't completely understand, the multiple substrings algorithm is a bit slower.
 Really, I think it may be something with the string concatenation or perhaps the way Java references objects and their methods.
 If anyone can find out he reason that the suffix tree testing algorithm for multiple strings takes about twice as long as its non-recursive counterpart, I would be appreciative.
-
+This readme is maintained by Brandon Weathers.
 ## Contacts
 | Contributor      | Email            | 
 |------------------|------------------|
