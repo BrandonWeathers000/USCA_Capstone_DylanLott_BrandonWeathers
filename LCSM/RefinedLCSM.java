@@ -5,6 +5,16 @@ import java.util.List;
 import java.util.ArrayList;
 
 class RefinedLCSM{
+    public static void main(String[] args){
+        ArrayList<String> input = new ArrayList<>();
+        input.add("GeeksForGe");
+        input.add("GeeGeeksGeeForGe");
+        input.add("GeekForGe");
+        input.add("GeekForGes");
+
+        returnAllCommonSubstrings(input);
+    }
+
     public static List<String> returnAllCommonSubstrings(ArrayList<String> allInputs){
         List<String> results = new ArrayList<>();
         results = returnCommonSubstrings(allInputs.get(0), allInputs.get(1));
@@ -63,15 +73,5 @@ class RefinedLCSM{
             // System.out.println();
         }
         return results;
-    }
-
-    public static void main(String[] args){
-        ArrayList<String> input = new ArrayList<>();
-        input.add("GeeksForGe");
-        input.add("GeeGeeksGeeForGe");
-        input.add("GeekForGe");
-        input.add("GeekForGes");
-
-        returnAllCommonSubstrings(input);
     }
 }
