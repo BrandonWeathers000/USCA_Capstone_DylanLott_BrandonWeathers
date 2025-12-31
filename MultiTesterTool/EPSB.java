@@ -92,8 +92,8 @@ class EPSB{
     }
 
     public void getInfo(){
-        System.out.println("The current passwords are: ");
-        this.passwords.forEach((currentPassword) -> {System.out.print(currentPassword + ", ");});
+        // System.out.println("The current passwords are: ");
+        // this.passwords.forEach((currentPassword) -> {System.out.print(currentPassword + ", ");});
         System.out.println();
         System.out.println("CAPITALS:");
         System.out.println("     Minimum number of capitals are: " +                this.capitals.get(  0));

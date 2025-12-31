@@ -1,61 +1,134 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 12/29/2025 12:40 AM
+// Last updated: 12/30/2025 10:57 PM
 
 import java.util.*;
 
 class MultiTesterTool{
     public static void main(String[] args){
+        System.out.println("\033[H\033[2J");
         System.out.println("Greetings user! Welcome to the multitesting tool.");
-        System.out.println("Please enter below the passwords you would like to analyse, enter \"DONE\" when finished");
 
         ArrayList<String> userPasswords = new ArrayList<>();
         readInUserPasswords(userPasswords);
         // System.out.println("The user passwords are:");
         // userPasswords.forEach((currentPassword) -> System.out.print(currentPassword + ", "));
 
-        printMainMenu();
-
         Scanner ob = new Scanner(System.in);
         String userInput = "";
+
         while(!(userInput.equals("q"))){
-            System.out.print(">>> ");
             userInput = ob.nextLine();
             switch(userInput){
-                case "1":
-                    System.out.println("Function 1");
-                    break;
-                case "2":
-                    System.out.println("Function 2");
-                    break;
-                case "3":
-                    System.out.println("Function 3");
-                    break;
-                case "4":
-                    System.out.println("Function 4");
-                    break;
-                default:
-                    System.out.println("Please enter a valid answer");
+                case "1" -> useEPSB(userPasswords);
+                case "2" -> useRefinedLCSM(userPasswords);
+                case "3" -> useSuffixTree(userPasswords);
+                case "r" -> { System.out.println("\033[H\033[2J"); readInUserPasswords(userPasswords); }
+                case "q" -> System.out.println("Exiting");
+                case ""  -> System.out.print(">>> ");
+                default  -> System.out.print("Please enter a valid answer\n>>> ");
             }
         }
     }
 
     static ArrayList<String> readInUserPasswords(ArrayList<String> userPasswords){
+        System.out.println("Please enter below the passwords you would like to analyse, enter \"q\" when finished");
+
+        userPasswords.clear();
         Scanner ob = new Scanner(System.in);
         String currentPassword = "";
-        while(!(currentPassword.equals("DONE"))){
+        while(!(currentPassword.equals("q"))){
+            System.out.print(">>> ");
             currentPassword = ob.nextLine();
             userPasswords.add(currentPassword);
         }
         userPasswords.remove(userPasswords.size()-1);
+
+        System.out.println("\033[H\033[2J");
+        printMainMenu(userPasswords);
+        System.out.print(">>> ");
+
         return userPasswords;
     }
 
-    static void printMainMenu(){
+    static void printMainMenu(ArrayList<String> userPasswords){
+        System.out.println("The passwords to be analysed are as follows:");
+        userPasswords.forEach((currentPassword) -> System.out.println("\t- " + currentPassword));
+        System.out.println();
         System.out.println("Please choosing the following method to analyse the previous input:");
-        System.out.println("1) EPSB");
-        System.out.println("2) All common substrings (Summer method)");
-        System.out.println("3) Longest common substring");
-        System.out.println("4) Multiple longest common substring (with squashing)");
-        System.out.println("Press \"q\" to quit");
+        System.out.println("\t1) EPSB");
+        System.out.println("\t2) All common substrings (Summer method)");
+        System.out.println("\t3) Multiple common substrings (with squashing, first two strings only)");
+        System.out.println("\tr) Read in a new set of passwords");
+        System.out.println("\tq) Quit the program");
+    }
+
+    static void useEPSB(ArrayList<String> userPasswords){
+        System.out.println("\033[H\033[2J");
+        Scanner ob = new Scanner(System.in);
+        EPSB myEPSB = new EPSB();
+        for(String currentPassword : userPasswords){
+            myEPSB.addNewPassword(currentPassword);
+        }
+        myEPSB.getInfo();
+        System.out.println();
+        System.out.println("Press any key to continue.");
+        String waitingForUser1 = ob.nextLine();
+        System.out.println("\033[H\033[2J");
+        printMainMenu(userPasswords);
+        System.out.print(">>> ");
+    }
+
+    static void useRefinedLCSM(ArrayList<String> userPasswords){
+        System.out.println("\033[H\033[2J");
+
+        Scanner ob = new Scanner(System.in);
+        RefinedLCSM myRefinedLCSM = new RefinedLCSM();
+        List<String> results = new ArrayList<>();
+
+        results = RefinedLCSM.returnAllCommonSubstrings(userPasswords);
+
+        if(results.size() == 0){
+            System.out.println("No common substrings.");
+        }else{
+            System.out.println("All common substrings are as follows:");
+            results.forEach((currentString) -> System.out.println("\t- " + currentString));
+        }
+
+        System.out.println();
+        System.out.println("Press any key to continue.");
+        String waitingForUser1 = ob.nextLine();
+        System.out.println("\033[H\033[2J");
+
+        printMainMenu(userPasswords);
+        System.out.print(">>> ");
+    }
+
+    static void useSuffixTree(ArrayList<String> userPasswords){
+        System.out.println("\033[H\033[2J");
+        Scanner ob = new Scanner(System.in);
+        ArrayList<String> allSubstrings = new ArrayList<String>();
+
+        System.out.println("Please provide the index of the two strings you wish to compare:");
+        int userIndex1 = ob.nextInt();
+        int userIndex2 = ob.nextInt();
+        System.out.println("\033[H\033[2J");
+
+        MultipleStringsFinder.recursiveFindLongestCommonSubstring(userPasswords.get(userIndex1 - 1), userPasswords.get(userIndex2 - 1), allSubstrings);
+
+        if(allSubstrings.get(0).equals("")){
+            System.out.println("No common substrings.");
+        }else{
+            System.out.println("All common substrings (with squashing) are as follows:");
+            allSubstrings.forEach((currentString) -> System.out.println("\t- " + currentString));
+        }
+
+        System.out.println();
+        System.out.println("Press any key to continue.");
+        String waitingForUser1 = ob.nextLine();
+        waitingForUser1 = ob.nextLine();
+        System.out.println("\033[H\033[2J");
+
+        printMainMenu(userPasswords);
+        System.out.print(">>> ");
     }
 }
