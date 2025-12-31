@@ -1,5 +1,5 @@
 // Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 12/2/2025 12:56 PM
+// Last updated: 12/25/2025 9:18 PM
 
 // This file is only for testing the speed of the LCSM algorithm.
 // On average this version of my LCSM takes 0.313 seconds.
@@ -99,14 +99,14 @@ class Mini_LCSM_Testing{
         return Y_1.substring(lastIndexOnY1 - maxLength, lastIndexOnY1);
     }
 
-    private static ArrayList<String> getRecordFromLine(String line){
-        ArrayList<String> currentLine = new ArrayList<String>();
-        try(Scanner rowScanner = new Scanner(line)){
-            rowScanner.useDelimiter(COMMA_DELIMITER);
-            while(rowScanner.hasNext()){
-                currentLine.add(rowScanner.next());
-            }
-        }
-        return currentLine;
-    }
+    // private static ArrayList<String> getRecordFromLine(String line){
+    //     ArrayList<String> currentLine = new ArrayList<String>();
+    //     try(Scanner rowScanner = new Scanner(line)){
+    //         rowScanner.useDelimiter(COMMA_DELIMITER);
+    //         while(rowScanner.hasNext()){
+    //             currentLine.add(rowScanner.next());
+    //         }
+    //     }
+    //     return currentLine;
+    // }
 }

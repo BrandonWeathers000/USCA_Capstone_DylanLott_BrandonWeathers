@@ -12,6 +12,7 @@ class MultipleStringsFinderTesting{
         for(int index = 0; index < 100; index++){
             ArrayList<String> allSubstrings = new ArrayList<String>();
             recursiveFindLongestCommonSubstring(mainInput1, mainInput2, allSubstrings);
+            recursiveFindLongestCommonSubstring(mainInput1, mainInput2, allSubstrings);
         }
         long endTime = System.nanoTime();
         System.out.println("The RECURSIVE suffix tree algorithm takes " + (endTime-startTime)/1000000 + " miliseconds comparing 2 entries 100 times.");
