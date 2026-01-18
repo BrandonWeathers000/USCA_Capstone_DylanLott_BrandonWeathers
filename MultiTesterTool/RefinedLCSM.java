@@ -7,15 +7,15 @@ import java.util.ArrayList;
 class RefinedLCSM{
     public static void main(String[] args){
         ArrayList<String> input = new ArrayList<>();
-        // input.add("GeeksForGe");
-        // input.add("GeeGeeksGeeForGe");
-        // input.add("GeekForGe");
-        // input.add("GeekForGes");
-
         input.add("GeeksForGe");
-        input.add("a");
+        input.add("GeeGeeksGeeForGe");
         input.add("GeekForGe");
         input.add("GeekForGes");
+
+        // input.add("GeeksForGe");
+        // input.add("a");
+        // input.add("GeekForGe");
+        // input.add("GeekForGes");
 
         List<String> results = new ArrayList<>();
         results = returnAllCommonSubstrings(input);
@@ -26,12 +26,12 @@ class RefinedLCSM{
         List<String> results = new ArrayList<>();
         results = returnCommonSubstrings(allInputs.get(0), allInputs.get(1));
         if(results .size() == 0){
-            // System.out.println("No common substrings.");
+            System.out.println("No common substrings.");
             return results;
         }
-        // System.out.println("The substrings from S1 and S2 are:");
-        // results.forEach((currentSubstring) -> System.out.println("\"" + currentSubstring + "\""));
-        // System.out.println();
+        System.out.println("The substrings from S1 and S2 are:");
+        results.forEach((currentSubstring) -> System.out.println("\"" + currentSubstring + "\""));
+        System.out.println();
         for(int index = 2; index < allInputs.size(); index++){
             singleAuxiliaryComparison(allInputs.get(index), results);
         }
@@ -71,7 +71,7 @@ class RefinedLCSM{
             List<String> possibleNewSubstrings = new ArrayList<>();
             possibleNewSubstrings = new ArrayList<>();
             possibleNewSubstrings = returnCommonSubstrings(otherInputString, results.get(0));
-            // System.out.println("The comparison of " + otherInputString + " and " + results.get(0) + " leaves the results looking as such:");
+            System.out.println("The comparison of " + otherInputString + " and " + results.get(0) + " leaves the results looking as such:");
             if(!(possibleNewSubstrings.isEmpty())){
                 for(String currentPossibleString : possibleNewSubstrings){
                     results.add(currentPossibleString);
@@ -80,8 +80,8 @@ class RefinedLCSM{
             }else{
                 results.remove(0);
             }
-            // results.forEach((currentSubstring) -> System.out.println("\"" + currentSubstring + "\""));
-            // System.out.println();
+            results.forEach((currentSubstring) -> System.out.println("\"" + currentSubstring + "\""));
+            System.out.println();
         }
         return results;
     }

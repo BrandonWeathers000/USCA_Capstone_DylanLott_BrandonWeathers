@@ -1,9 +1,27 @@
-// Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 12/30/2025 10:57 PM
+package Capstone.MultiTester;
 
 import java.util.*;
 
-class MultiTesterTool{
+/**
+ * @version 1.0
+ * @author Dylan Lott
+ * @author Brandon Weathers
+ * <hr>
+ * This class be meant to be ran as a way to test multiple ways to analyses passwords.
+ * It provides a clean interface for users to enter passwords a have them analyses.
+ */
+public class MultiTesterTool{
+    /**
+     * This class is not ment to be constructed and ran in another program; it's ment to be ran itself.
+     */
+    public MultiTesterTool(){
+    }
+
+    /**
+     * This is the entry point.
+     *
+     * @param args command-line arguments not used
+     */
     public static void main(String[] args){
         System.out.println("\033[H\033[2J");
         System.out.println("Greetings user! Welcome to the multitesting tool.");
@@ -30,7 +48,13 @@ class MultiTesterTool{
         }
     }
 
-    static ArrayList<String> readInUserPasswords(ArrayList<String> userPasswords){
+    /**
+     * Allows for the inputs of strings via the command line.
+     *
+     * @param userPasswords the blank (or old) list of user passwords
+     * @return ArrayList the new list of user passwords
+     */
+    public static ArrayList<String> readInUserPasswords(ArrayList<String> userPasswords){
         System.out.println("Please enter below the passwords you would like to analyse, enter \"q\" when finished");
 
         userPasswords.clear();
@@ -50,7 +74,12 @@ class MultiTesterTool{
         return userPasswords;
     }
 
-    static void printMainMenu(ArrayList<String> userPasswords){
+    /**
+     * Prints the main menu.
+     *
+     * @param userPasswords the blank (or old) list of user passwords
+     */
+    public static void printMainMenu(ArrayList<String> userPasswords){
         System.out.println("The passwords to be analysed are as follows:");
         userPasswords.forEach((currentPassword) -> System.out.println("\t- " + currentPassword));
         System.out.println();
@@ -62,7 +91,13 @@ class MultiTesterTool{
         System.out.println("\tq) Quit the program");
     }
 
-    static void useEPSB(ArrayList<String> userPasswords){
+    /**
+     * Creates and uses an EPSB object to analyse passwords.
+     * Processes one password at a time.
+     *
+     * @param userPasswords the blank (or old) list of user passwords
+     */
+    public static void useEPSB(ArrayList<String> userPasswords){
         System.out.println("\033[H\033[2J");
         Scanner ob = new Scanner(System.in);
         EPSB myEPSB = new EPSB();
@@ -78,7 +113,13 @@ class MultiTesterTool{
         System.out.print(">>> ");
     }
 
-    static void useRefinedLCSM(ArrayList<String> userPasswords){
+    /**
+     * Creates the refined version of the LCSM object
+     * and uses its new algorithm to process all user given strings.
+     *
+     * @param userPasswords the blank (or old) list of user passwords
+     */
+    public static void useRefinedLCSM(ArrayList<String> userPasswords){
         System.out.println("\033[H\033[2J");
 
         Scanner ob = new Scanner(System.in);
@@ -103,7 +144,14 @@ class MultiTesterTool{
         System.out.print(">>> ");
     }
 
-    static void useSuffixTree(ArrayList<String> userPasswords){
+    /**
+     * Creates a SuffixTree object and read two strings at a time.
+     * It then returns the longest common substring and all other commonsubstrings,
+     * with squashing, up to a 2 character minimmum.
+     *
+     * @param userPasswords the blank (or old) list of user passwords
+     */
+    public static void useSuffixTree(ArrayList<String> userPasswords){
         System.out.println("\033[H\033[2J");
         Scanner ob = new Scanner(System.in);
         ArrayList<String> allSubstrings = new ArrayList<String>();
