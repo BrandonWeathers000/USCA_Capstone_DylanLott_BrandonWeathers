@@ -1,21 +1,28 @@
-// Author(s): Dylan Lott & Brandon Weathers
-// Last updated: 11/1/2025  4:03 PM
+package Capstone.MultiTester;
 
-// I have created a class that handles the technical parsing and calculation.
-// I made this disccision so that I can use a single object in both a CLI and GUI versions.
-
-// I have changed this class so that it also keeps tracks of all letters and the
-// length of the new passwords as per the paper instructs.S
-
-// I have squeezed out some more preformance by saving time by not recalculating digit count or min or max values.
 import java.util.*;
 import java.util.regex.*;
 import java.util.Map;
 
-class EPSB{
+/**
+ * @version 1.0
+ * @author Dylan Lott
+ * @author Brandon Weathers
+ * <hr>
+ * I have created a class that handles the technical parsing and calculation.
+ * I made this disccision so that I can use a single object in both a CLI and GUI versions.
+ * I have changed this class so that it also keeps tracks of all letters and the
+ * length of the new passwords as per the paper instructs.S
+ * I have squeezed out some more preformance by saving time by not recalculating digit count or min or max values.
+ */
+
+public class EPSB{
     public ArrayList<String> passwords;
     public ArrayList<Integer> capitals, lowerCase, letters, numbers, symbols, length;
 
+    /**
+     * This class is ment of store basic numerical info in the form of various String array lists.
+     */
     public EPSB(){
         passwords = new ArrayList<String>();
         capitals  = new ArrayList<Integer>();
@@ -26,7 +33,10 @@ class EPSB{
         length    = new ArrayList<Integer>();
     }
 
-    void addNewPassword(String newPassword){
+    /**
+     * @param newPassword a new password to be added and analysed
+     */
+    public void addNewPassword(String newPassword){
         passwords .add(newPassword);
         capitals  .add((Integer) countCapitalsInWord(newPassword));
         lowerCase .add((Integer) countLowerCaseInWord(newPassword));
@@ -43,39 +53,70 @@ class EPSB{
         length.sort(null);
     }
 
-    int countCapitalsInWord(String currentPassword){
+    /**
+     * This method counts the number of capital letters in a given password via itteration
+     * @param currentPassword a password to have the capitals counted
+     * @return totalCapitalsInWord the total number of capitals in the input word
+     */
+    public int countCapitalsInWord(String currentPassword){
         int totalCapitalsInWord = 0;
         for(int index = 0; index < currentPassword.length(); index++)
             if(Pattern.matches("[A-Z]", currentPassword.substring(index, index+1))) totalCapitalsInWord++;
         return totalCapitalsInWord;
     }
 
-    int countLowerCaseInWord(String currentPassword){
+    /**
+     * This method counts the number of lower case letters in a given password via itteration
+     * @param currentPassword a password to have the lower case letters counted
+     * @return totalLowerCaseInWord the total number of lower case letters in the input word
+     */
+    public int countLowerCaseInWord(String currentPassword){
         int totalLowerCaseInWord = 0;
         for(int index = 0; index < currentPassword.length(); index++)
             if(Pattern.matches("[a-z]", currentPassword.substring(index, index+1))) totalLowerCaseInWord++;
         return totalLowerCaseInWord;
     }
 
-    int countDigits(String currentPassword){
+    /**
+     * This method counts the number of digits in a given password via itteration
+     * @param currentPassword a password to have the digits counted
+     * @return totalcountDigits the total number of digits in the input word
+     */
+    public int countDigits(String currentPassword){
         int totalcountDigits = 0;
         for(int index = 0; index < currentPassword.length(); index++)
             if(Pattern.matches("[0-9]", currentPassword.substring(index, index+1))) totalcountDigits++;
         return totalcountDigits;
     }
 
-    double getAverage(ArrayList<Integer> list){
+    /**
+     * This method calculates the average (arthmatic mean) with an input of ArrayList Integer
+     * @param list this is the list of Integer objects in an ArrayList
+     * @return average/list.size() the average of the list of Integers
+     */
+    public double getAverage(ArrayList<Integer> list){
         double average = 0;
         for(Integer currentElement : list)
             average += currentElement.intValue();
         return average/list.size();
     }
 
-    int getMedian(ArrayList<Integer> list){
+    /**
+     * This method calculates the median with an input of ArrayList Integer
+     * @param list this is the list of Integer objects in an ArrayList
+     * @return list.get(list.size()/2) the average of the list of Integers
+     */
+    public int getMedian(ArrayList<Integer> list){
        return list.get(list.size()/2);
     }
 
-    int getMode(ArrayList<Integer> list){
+    /**
+     * This method calculates the mode with an input of ArrayList Integer
+     * It does so by using the Map library
+     * @param list this is the list of Integer objects in an ArrayList
+     * @return mode the most common element of the list of Integers
+     */
+    public int getMode(ArrayList<Integer> list){
         HashMap<Integer, Integer> freqMap = new HashMap<Integer, Integer>();
 
         for(Integer index : list)
@@ -91,6 +132,10 @@ class EPSB{
         return mode;
     }
 
+    /**
+     * Return basic info by printing out the min, max, mean, median, and mode or capitals, lower
+     * case, letters, numbers, symbols, and length for all passwords associated with a user.
+     */
     public void getInfo(){
         // System.out.println("The current passwords are: ");
         // this.passwords.forEach((currentPassword) -> {System.out.print(currentPassword + ", ");});
@@ -139,6 +184,11 @@ class EPSB{
     }
 
 
+    /**
+     * This method is just like above, but it doesn't print anything out.
+     * It is just for testing the time the EPSB takes.
+     * It is ment to be ran many times, where terminal output becomes an obsticle.
+     */
     public void getInfoTesting(){
         // System.out.println("The current passwords are: ");
         // this.passwords.forEach((currentPassword) -> {System.out.print(currentPassword + ", ");});

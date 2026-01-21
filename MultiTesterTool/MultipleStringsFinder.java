@@ -6,6 +6,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/* This class provies methods for findings substrings (and subsequences)
+ * when provided multiple inputs strings.
+ * */
+
 public class MultipleStringsFinder{
     public static final String COMMA_DELIMITER = ",";
 
