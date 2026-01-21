@@ -86,8 +86,8 @@ public class MultiTesterTool{
         System.out.println();
         System.out.println("Please choosing the following method to analyse the previous input:");
         System.out.println("\t1) EPSB");
-        System.out.println("\t2) All common substrings (Summer method)");
-        System.out.println("\t3) Multiple common substrings (with squashing, first two strings only)");
+        System.out.println("\t2) The longest a common substring amoung all inputs");
+        System.out.println("\t3) Multiple common substrings (with squashing)");
         System.out.println("\tr) Read in a new set of passwords");
         System.out.println("\tq) Quit the program");
     }
@@ -107,7 +107,7 @@ public class MultiTesterTool{
         }
         myEPSB.getInfo();
         System.out.println();
-        System.out.println("Press any key to continue.");
+        System.out.println("Press enter to continue.");
         String waitingForUser1 = ob.nextLine();
         System.out.println("\033[H\033[2J");
         printMainMenu(userPasswords);
@@ -130,14 +130,14 @@ public class MultiTesterTool{
         results = RefinedLCSM.returnAllCommonSubstrings(userPasswords);
 
         if(results.size() == 0){
-            System.out.println("No common substrings.");
+            // System.out.println("No common substrings.");
         }else{
             System.out.println("All common substrings are as follows:");
             results.forEach((currentString) -> System.out.println("\t- " + currentString));
         }
 
         System.out.println();
-        System.out.println("Press any key to continue.");
+        System.out.println("Press enter to continue.");
         String waitingForUser1 = ob.nextLine();
         System.out.println("\033[H\033[2J");
 
@@ -158,7 +158,9 @@ public class MultiTesterTool{
         ArrayList<String> allSubstrings = new ArrayList<String>();
 
         System.out.println("Please provide the index of the two strings you wish to compare:");
+        System.out.print(">>> ");
         int userIndex1 = ob.nextInt();
+        System.out.print(">>> ");
         int userIndex2 = ob.nextInt();
         System.out.println("\033[H\033[2J");
 
@@ -168,11 +170,16 @@ public class MultiTesterTool{
             System.out.println("No common substrings.");
         }else{
             System.out.println("All common substrings (with squashing) are as follows:");
-            allSubstrings.forEach((currentString) -> System.out.println("\t- " + currentString));
+            // allSubstrings.forEach((currentString) -> System.out.println("\t- " + currentString));
+            for(String currentString : allSubstrings){
+                if(!currentString.equals("")){
+                    System.out.println("\t- " + currentString);
+                }
+            }
         }
 
         System.out.println();
-        System.out.println("Press any key to continue.");
+        System.out.println("Press enter to continue.");
         String waitingForUser1 = ob.nextLine();
         waitingForUser1 = ob.nextLine();
         System.out.println("\033[H\033[2J");

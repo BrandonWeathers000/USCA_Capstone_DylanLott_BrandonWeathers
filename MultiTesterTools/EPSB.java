@@ -144,42 +144,42 @@ public class EPSB{
         System.out.println();
         System.out.println("CAPITALS:");
         System.out.println("     Minimum number of capitals are: " +                this.capitals.get(  0));
-        System.out.println("     Max number of capitals are: " +                    this.capitals.get(  this.capitals.size()-1));
+        System.out.println("     Maximum number of capitals are: " +                    this.capitals.get(  this.capitals.size()-1));
         System.out.printf ("     Average number of capitals are: %.2f\n",           this.getAverage(    this.capitals));
         System.out.println("     Median number of capitals are: " +                 this.getMedian(     this.capitals));
         System.out.println("     Mode number of capitals are: " +                   this.getMode(       this.capitals));
 
         System.out.println("LOWER CASE:");
         System.out.println("     Minimum number of lower case letters are: " +      this.lowerCase.get( 0));
-        System.out.println("     Max number of lower case letters are: " +          this.lowerCase.get( this.lowerCase.size()-1));
+        System.out.println("     Maximum number of lower case letters are: " +          this.lowerCase.get( this.lowerCase.size()-1));
         System.out.printf ("     Average number of lower case letters are: %.2f\n", this.getAverage(    this.lowerCase));
         System.out.println("     Median number of lower case letters are: " +       this.getMedian(     this.lowerCase));
         System.out.println("     Mode number of lower case letters are: " +         this.getMode(       this.lowerCase));
 
         System.out.println("LETTERS:");
         System.out.println("     Minimum number of letters are: " +                 this.letters.get(   0));
-        System.out.println("     Max number of letters are: " +                     this.letters.get(   this.letters.size()-1));
+        System.out.println("     Maximum number of letters are: " +                     this.letters.get(   this.letters.size()-1));
         System.out.printf ("     Average number of letters are: %.2f\n",            this.getAverage(    this.letters));
         System.out.println("     Median number of letters are: " +                  this.getMedian(     this.letters));
         System.out.println("     Mode number of letters are: " +                    this.getMode(       this.letters));
 
         System.out.println("NUMBERS:");
         System.out.println("     Minimum number of numbers are: " +                 this.numbers.get(    0));
-        System.out.println("     Max number of numbers are: " +                     this.numbers.get(    this.numbers.size()-1));
+        System.out.println("     Maximum number of numbers are: " +                     this.numbers.get(    this.numbers.size()-1));
         System.out.printf ("     Average number of numbers are: %.2f\n",            this.getAverage(     this.numbers));
         System.out.println("     Median number of numbers are: " +                  this.getMedian(      this.numbers));
         System.out.println("     Mode number of numbers are: " +                    this.getMode(        this.numbers));
 
         System.out.println("SYMBOLS:");
         System.out.println("     Minimum number of symbols are: " +                 this.symbols.get(    0));
-        System.out.println("     Max number of symbols are: " +                     this.symbols.get(    this.symbols.size()-1));
+        System.out.println("     Maximum number of symbols are: " +                     this.symbols.get(    this.symbols.size()-1));
         System.out.printf ("     Average number of symbols are: %.2f\n",            this.getAverage(     this.symbols));
         System.out.println("     Median number of symbols are: " +                  this.getMedian(      this.symbols));
         System.out.println("     Mode number of symbols are: " +                    this.getMode(        this.symbols));
 
         System.out.println("LENGTH:");
         System.out.println("     Minimum length is: " +                             this.length.get(     0));
-        System.out.println("     Max length is: " +                                 this.length.get(     this.length.size()-1));
+        System.out.println("     Maximum length is: " +                                 this.length.get(     this.length.size()-1));
         System.out.printf ("     Average length is: %.2f\n",                        this.getAverage(     this.length));
         System.out.println("     Median length is: " +                              this.getMedian(      this.length));
         System.out.println("     Mode length is: " +                                this.getMode(        this.length));

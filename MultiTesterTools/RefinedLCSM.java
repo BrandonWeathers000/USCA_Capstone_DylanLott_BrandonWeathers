@@ -47,9 +47,9 @@ public class RefinedLCSM{
             System.out.println("No common substrings.");
             return results;
         }
-        System.out.println("The substrings from S1 and S2 are:");
-        results.forEach((currentSubstring) -> System.out.println("\"" + currentSubstring + "\""));
-        System.out.println();
+        // System.out.println("The substrings from S1 and S2 are:");
+        // results.forEach((currentSubstring) -> System.out.println("\"" + currentSubstring + "\""));
+        // System.out.println();
         for(int index = 2; index < allInputs.size(); index++){
             singleAuxiliaryComparison(allInputs.get(index), results);
         }
@@ -103,7 +103,7 @@ public class RefinedLCSM{
             List<String> possibleNewSubstrings = new ArrayList<>();
             possibleNewSubstrings = new ArrayList<>();
             possibleNewSubstrings = returnCommonSubstrings(otherInputString, results.get(0));
-            System.out.println("The comparison of " + otherInputString + " and " + results.get(0) + " leaves the results looking as such:");
+            // System.out.println("The comparison of " + otherInputString + " and " + results.get(0) + " leaves the results looking as such:");
             if(!(possibleNewSubstrings.isEmpty())){
                 for(String currentPossibleString : possibleNewSubstrings){
                     results.add(currentPossibleString);
@@ -112,8 +112,8 @@ public class RefinedLCSM{
             }else{
                 results.remove(0);
             }
-            results.forEach((currentSubstring) -> System.out.println("\"" + currentSubstring + "\""));
-            System.out.println();
+            // results.forEach((currentSubstring) -> System.out.println("\"" + currentSubstring + "\""));
+            // System.out.println();
         }
         return results;
     }
