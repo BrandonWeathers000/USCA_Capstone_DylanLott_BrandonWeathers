@@ -18,10 +18,10 @@ public class Little_EPSB_CLI_Testing{
         long startTime = System.nanoTime();
         for(int index = 0; index < 100; index++){
                 EPSB1.addNewPassword(currentPassword1);
-                EPSB1.getInfoTesting();
+                EPSB1.getInfo(true);
         }
         long endTime = System.nanoTime();
-        EPSB1.getInfoTesting();
+        EPSB1.getInfo(true);
         System.out.println("The EPSB algorithm takes " + (endTime-startTime)/1000000 + " miliseconds for 100 entries.");
     }
 }

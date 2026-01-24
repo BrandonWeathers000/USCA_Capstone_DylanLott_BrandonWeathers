@@ -1,5 +1,3 @@
-package Capstone.MultiTester;
-
 import java.util.*;
 import java.util.regex.*;
 import java.util.Map;
@@ -19,14 +17,12 @@ import java.util.Map;
  */
 
 public class EPSB{
-    public ArrayList<String> passwords;
     public ArrayList<Integer> capitals, lowerCase, letters, numbers, symbols, length;
 
     /**
      * This class is ment of store basic numerical info in the form of various String array lists.
      */
     public EPSB(){
-        passwords = new ArrayList<String>();
         capitals  = new ArrayList<Integer>();
         lowerCase = new ArrayList<Integer>();
         letters   = new ArrayList<Integer>();
@@ -36,16 +32,32 @@ public class EPSB{
     }
 
     /**
+     * This method is used to tally the total number of various feature of the given new password
      * @param newPassword a new password to be added and analysed
      */
     public void addNewPassword(String newPassword){
-        passwords .add(newPassword);
-        capitals  .add((Integer) countCapitalsInWord(newPassword));
-        lowerCase .add((Integer) countLowerCaseInWord(newPassword));
-        letters   .add((Integer) capitals.get(lowerCase.size()-1) + lowerCase.get(lowerCase.size()-1));
-        numbers   .add((Integer) countDigits(newPassword));
-        length    .add((Integer) newPassword.length());
-        symbols   .add((Integer) length.get(length.size()-1) - (letters.get(letters.size()-1) + numbers.get(numbers.size()-1)));
+        int capitalsInWord = 0, lowerCaseInWord = 0, digitsInWord = 0;
+
+        for(int index = 0; index < newPassword.length(); index++){
+            switch(newPassword.charAt(index)){
+                case 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z':
+                    capitalsInWord++;
+                    break;
+                case 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z':
+                    lowerCaseInWord++;
+                    break;
+                case '0', '1', '2', '3', '4', '5', '6', '7', '8', '9':
+                    digitsInWord++;
+                    break;
+            }
+        }
+
+        capitals.add((Integer) capitalsInWord);
+        lowerCase.add((Integer) lowerCaseInWord);
+        letters.add((Integer) capitalsInWord + lowerCaseInWord);
+        numbers.add((Integer) digitsInWord);
+        symbols.add((Integer) newPassword.length() - (capitalsInWord + lowerCaseInWord + digitsInWord));
+        length.add((Integer) newPassword.length());
 
         capitals.sort(null);
         lowerCase.sort(null);
@@ -53,42 +65,6 @@ public class EPSB{
         numbers.sort(null);
         symbols.sort(null);
         length.sort(null);
-    }
-
-    /**
-     * This method counts the number of capital letters in a given password via itteration
-     * @param currentPassword a password to have the capitals counted
-     * @return totalCapitalsInWord the total number of capitals in the input word
-     */
-    public int countCapitalsInWord(String currentPassword){
-        int totalCapitalsInWord = 0;
-        for(int index = 0; index < currentPassword.length(); index++)
-            if(Pattern.matches("[A-Z]", currentPassword.substring(index, index+1))) totalCapitalsInWord++;
-        return totalCapitalsInWord;
-    }
-
-    /**
-     * This method counts the number of lower case letters in a given password via itteration
-     * @param currentPassword a password to have the lower case letters counted
-     * @return totalLowerCaseInWord the total number of lower case letters in the input word
-     */
-    public int countLowerCaseInWord(String currentPassword){
-        int totalLowerCaseInWord = 0;
-        for(int index = 0; index < currentPassword.length(); index++)
-            if(Pattern.matches("[a-z]", currentPassword.substring(index, index+1))) totalLowerCaseInWord++;
-        return totalLowerCaseInWord;
-    }
-
-    /**
-     * This method counts the number of digits in a given password via itteration
-     * @param currentPassword a password to have the digits counted
-     * @return totalcountDigits the total number of digits in the input word
-     */
-    public int countDigits(String currentPassword){
-        int totalcountDigits = 0;
-        for(int index = 0; index < currentPassword.length(); index++)
-            if(Pattern.matches("[0-9]", currentPassword.substring(index, index+1))) totalcountDigits++;
-        return totalcountDigits;
     }
 
     /**
@@ -139,97 +115,71 @@ public class EPSB{
      * case, letters, numbers, symbols, and length for all passwords associated with a user.
      */
     public void getInfo(){
-        // System.out.println("The current passwords are: ");
-        // this.passwords.forEach((currentPassword) -> {System.out.print(currentPassword + ", ");});
-        System.out.println();
-        System.out.println("CAPITALS:");
-        System.out.println("     Minimum number of capitals are: " +                this.capitals.get(  0));
-        System.out.println("     Max number of capitals are: " +                    this.capitals.get(  this.capitals.size()-1));
-        System.out.printf ("     Average number of capitals are: %.2f\n",           this.getAverage(    this.capitals));
-        System.out.println("     Median number of capitals are: " +                 this.getMedian(     this.capitals));
-        System.out.println("     Mode number of capitals are: " +                   this.getMode(       this.capitals));
+        System.out.printf("\n");
+        System.out.printf("[CAPITALS]                             [LOWER CASE]\n");
+        System.out.printf("Minimum number of capitals are: %d    | Minimum number of lower case letters are: %d\n", capitals.get(0), lowerCase.get(0));
+        System.out.printf("Maximum number of capitals are: %d    | Maximum number of lower case letters are: %d\n", capitals.get(capitals.size()-1), lowerCase.get(lowerCase.size()-1));
+        System.out.printf("verage number of capitals are:  %.2f | Average number of lower case letters are: %.2f\n", getAverage(capitals), getAverage(lowerCase));
+        System.out.printf("Median number of capitals are:  %d    | Median number of lower case letters are:  %d\n", getMedian(capitals) ,getMedian(lowerCase));
+        System.out.printf("Mode number of capitals are:    %d    | Mode number of lower case letters are:    %d\n\n", getMode(capitals), getMode(letters));
 
-        System.out.println("LOWER CASE:");
-        System.out.println("     Minimum number of lower case letters are: " +      this.lowerCase.get( 0));
-        System.out.println("     Max number of lower case letters are: " +          this.lowerCase.get( this.lowerCase.size()-1));
-        System.out.printf ("     Average number of lower case letters are: %.2f\n", this.getAverage(    this.lowerCase));
-        System.out.println("     Median number of lower case letters are: " +       this.getMedian(     this.lowerCase));
-        System.out.println("     Mode number of lower case letters are: " +         this.getMode(       this.lowerCase));
+        System.out.printf("[LETTERS]                              [NUMBERS]\n");
+        System.out.printf("Minimum number of letters are: %d    | Minimum number of numbers are: %d\n", letters.get(0), numbers.get(0));
+        System.out.printf("Maximum number of letters are: %d    | Maximum number of numbers are: %d\n", letters.get(letters.size()-1), numbers.get(numbers.size()-1));
+        System.out.printf("Average number of letters are: %.2f | Average number of numbers are: %.2f\n", getAverage(letters), getAverage(numbers));
+        System.out.printf("Median number of letters are:  %d    | Median number of numbers are:  %d\n", getMedian(letters), getMedian(numbers));
+        System.out.printf("Mode number of letters are:    %d    | Mode number of numbers are:    %d\n\n", getMode(letters), getMode(numbers));
 
-        System.out.println("LETTERS:");
-        System.out.println("     Minimum number of letters are: " +                 this.letters.get(   0));
-        System.out.println("     Max number of letters are: " +                     this.letters.get(   this.letters.size()-1));
-        System.out.printf ("     Average number of letters are: %.2f\n",            this.getAverage(    this.letters));
-        System.out.println("     Median number of letters are: " +                  this.getMedian(     this.letters));
-        System.out.println("     Mode number of letters are: " +                    this.getMode(       this.letters));
-
-        System.out.println("NUMBERS:");
-        System.out.println("     Minimum number of numbers are: " +                 this.numbers.get(    0));
-        System.out.println("     Max number of numbers are: " +                     this.numbers.get(    this.numbers.size()-1));
-        System.out.printf ("     Average number of numbers are: %.2f\n",            this.getAverage(     this.numbers));
-        System.out.println("     Median number of numbers are: " +                  this.getMedian(      this.numbers));
-        System.out.println("     Mode number of numbers are: " +                    this.getMode(        this.numbers));
-
-        System.out.println("SYMBOLS:");
-        System.out.println("     Minimum number of symbols are: " +                 this.symbols.get(    0));
-        System.out.println("     Max number of symbols are: " +                     this.symbols.get(    this.symbols.size()-1));
-        System.out.printf ("     Average number of symbols are: %.2f\n",            this.getAverage(     this.symbols));
-        System.out.println("     Median number of symbols are: " +                  this.getMedian(      this.symbols));
-        System.out.println("     Mode number of symbols are: " +                    this.getMode(        this.symbols));
-
-        System.out.println("LENGTH:");
-        System.out.println("     Minimum length is: " +                             this.length.get(     0));
-        System.out.println("     Max length is: " +                                 this.length.get(     this.length.size()-1));
-        System.out.printf ("     Average length is: %.2f\n",                        this.getAverage(     this.length));
-        System.out.println("     Median length is: " +                              this.getMedian(      this.length));
-        System.out.println("     Mode length is: " +                                this.getMode(        this.length));
+        System.out.printf("[SYMBOLS]                              [LENGTH]\n");
+        System.out.printf("Minimum number of symbols are: %d     | Minimum length is: %d\n", symbols.get(0), length.get(0));
+        System.out.printf("Maximum number of symbols are: %d     | Maximum length is: %d\n", symbols.get(symbols.size()-1), length.get(length.size()-1));
+        System.out.printf("Average number of symbols are: %.2f  | Average length is: %.2f\n", getAverage(symbols), getAverage(length));
+        System.out.printf("Median number of symbols are:  %d     | Median length is:  %d\n", getMedian(symbols), getMedian(length));
+        System.out.printf("Mode number of symbols are:    %d     | Mode length is:    %d\n\n", getMode(symbols), getMode(length));
     }
-
 
     /**
      * This method is just like above, but it doesn't print anything out.
      * It is just for testing the time the EPSB takes.
      * It is ment to be ran many times, where terminal output becomes an obsticle.
+     *
+     * @param wantToTest please set to ture
      */
-    public void getInfoTesting(){
-        // System.out.println("The current passwords are: ");
-        // this.passwords.forEach((currentPassword) -> {System.out.print(currentPassword + ", ");});
-        // System.out.println();
+    public void getInfo(boolean wantToTest){
+        if(wantToTest == false){
+            System.out.println("Plesae pass \"true\" to activate testing purposes.");
+            return;
+        }
 
-        this.capitals.get(  0);
-        this.capitals.get(  this.capitals.size()-1);
-        this.getAverage(    this.capitals);
-        this.getMedian(     this.capitals);
-        this.getMode(       this.capitals);
-
-        this.lowerCase.get( 0);
-        this.lowerCase.get( this.lowerCase.size()-1);
-        this.getAverage(    this.lowerCase);
-        this.getMedian(     this.lowerCase);
-        this.getMode(       this.lowerCase);
-
-        this.letters.get(   0);
-        this.letters.get(   this.letters.size()-1);
-        this.getAverage(    this.letters);
-        this.getMedian(     this.letters);
-        this.getMode(       this.letters);
-
-        this.numbers.get(    0);
-        this.numbers.get(    this.numbers.size()-1);
-        this.getAverage(     this.numbers);
-        this.getMedian(      this.numbers);
-        this.getMode(        this.numbers);
-
-        this.symbols.get(    0);
-        this.symbols.get(    this.symbols.size()-1);
-        this.getAverage(     this.symbols);
-        this.getMedian(      this.symbols);
-        this.getMode(        this.symbols);
-
-        this.length.get(     0);
-        this.length.get(     this.length.size()-1);
-        this.getAverage(     this.length);
-        this.getMedian(      this.length);
-        this.getMode(        this.length);
+        capitals.get(0);
+        lowerCase.get(0);
+        capitals.get(capitals.size()-1);
+        lowerCase.get(lowerCase.size()-1);
+        getAverage(capitals);
+        getAverage(lowerCase);
+        getMedian(capitals) ;
+        getMedian(lowerCase);
+        getMode(capitals);
+        getMode(letters);
+        letters.get(0);
+        numbers.get(0);
+        letters.get(letters.size()-1);
+        numbers.get(numbers.size()-1);
+        getAverage(letters);
+        getAverage(numbers);
+        getMedian(letters);
+        getMedian(numbers);
+        getMode(letters);
+        getMode(numbers);
+        symbols.get(0);
+        length.get(0);
+        symbols.get(symbols.size()-1);
+        length.get(length.size()-1);
+        getAverage(symbols);
+        getAverage(length);
+        getMedian(symbols);
+        getMedian(length);
+        getMode(symbols);
+        getMode(length);
     }
 }
