@@ -1,5 +1,7 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.*;
+import java.io.*;
 
 /**
  * @version 1.0
@@ -9,7 +11,7 @@ import java.util.ArrayList;
  * This class provies methods a single substring amoung an non-zero number of input strings.
  */
 
-public class RefinedLCSM{
+public class RefinedLCSMTesting{
     /**
      * This is the entry point.
      * It is usually used for testing.
@@ -17,19 +19,19 @@ public class RefinedLCSM{
      * @param args command-line arguments not used
      */
     public static void main(String[] args){
-        ArrayList<String> input = new ArrayList<>();
+        long startTime = System.nanoTime();
+        for(int index = 0; index < 100; index++){
+            ArrayList<String> input = new ArrayList<>();
 
-        // input.add("Bob1abc");
-        // input.add("Bob2abc");
-        // input.add("Bob3abc");
+            input.add("ancplucaskai99ancplucaskai99");
+            input.add("ancplucaskai99ancplucaskai997");
 
-        input.add("Bobby1abc");
-        input.add("Bobby2abc");
-        input.add("Bobby3abc");
+            List<String> results = new ArrayList<>();
+            results = returnAllCommonSubstrings(input);
+        }
 
-        List<String> results = new ArrayList<>();
-        results = returnAllCommonSubstrings(input);
-        results.forEach((currentPassword) -> System.out.print(currentPassword + ", "));
+        long endTime = System.nanoTime();
+        System.out.println("The LCMS algorithm takes " + (endTime-startTime)/1000000 + " miliseconds for 2 entries 100 times.");
     }
 
     /**

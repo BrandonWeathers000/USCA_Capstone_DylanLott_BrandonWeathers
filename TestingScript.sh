@@ -11,7 +11,7 @@ cd ..
 
 cd LCSM/
 javac *.java
-java Mini_LCSM_Testing
+java RefinedLCSMTesting
 cd ..
 
 cd SuffixTree
