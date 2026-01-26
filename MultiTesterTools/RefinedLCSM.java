@@ -21,13 +21,17 @@ public class RefinedLCSM{
     public static void main(String[] args){
         ArrayList<String> input = new ArrayList<>();
 
+        input.add("Bo1abc");
+        input.add("Bo2abc");
+        input.add("Bo3abc");
+
         // input.add("Bob1abc");
         // input.add("Bob2abc");
         // input.add("Bob3abc");
 
-        input.add("Bobby1abc");
-        input.add("Bobby2abc");
-        input.add("Bobby3abc");
+        // input.add("Bobby1abc");
+        // input.add("Bobby2abc");
+        // input.add("Bobby3abc");
 
         List<String> results = new ArrayList<>();
         results = returnAllCommonSubstrings(input);
