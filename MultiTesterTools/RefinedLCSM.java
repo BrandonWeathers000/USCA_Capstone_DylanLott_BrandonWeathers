@@ -8,6 +8,9 @@ import java.util.ArrayList;
  * @author Dylan Lott
  * @author Brandon Weathers
  * <hr>
+ * WARNING: This classes posses inneffiences that I am disatsfied with.
+ * I must rewrite this algorithm to imporve its preformance.
+ *
  * This class provies methods a single substring amoung an non-zero number of input strings.
  */
 
