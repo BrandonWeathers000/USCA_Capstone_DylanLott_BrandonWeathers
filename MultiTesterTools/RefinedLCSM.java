@@ -27,25 +27,51 @@ public class RefinedLCSM{
     public static void main(String[] args){
         ArrayList<String> input = new ArrayList<>();
 
-        input.add("Bo1abc");
-        input.add("Bo2abc");
-        input.add("Bo3abc");
+        // input.add("Bo1abc");
+        // input.add("Bo2abc");
+        // input.add("Bo3abc");
 
         // input.add("Bob1abc");
         // input.add("Bob2abc");
         // input.add("Bob3abc");
 
-        // input.add("Bobby1abc");
-        // input.add("Bobby2abc");
-        // input.add("Bobby3abc");
+        input.add("Bobby1abc");
+        input.add("Bobby2abc");
+        input.add("Bobby3abc");
+        input.add("Bobby4abc");
 
-        Set<String> results = new HashSet<>();
-        results = maximalCommonSubstrings("Bobby1abc", "Bobby2abc");
+        ArrayList<String> results = new ArrayList<>();
+        results = returnAllSubstringMultiInput(input);
         results.forEach((currentPassword) -> System.out.print(currentPassword + ", "));
     }
 
-    public static returnAllSubstringMultiInput(ArrayList<String> input){;
-        ArrayList<String> results = new ArrayList<Srings>();
+    public static ArrayList<String> returnAllSubstringMultiInput(ArrayList<String> input){;
+        ArrayList<String> results = new ArrayList<>();
+        Set<String> firstComparison = maximalCommonSubstrings(input.get(0), input.get(1));
+
+        for(String currentSubstring : firstComparison){
+            results.add(currentSubstring);
+        }
+
+        input.forEach((element) -> System.out.println(element));
+        results.forEach((element) -> System.out.println(element));
+
+        // for(int index = 2; index < input.size(); index++){
+        //     for(int index2 = 0; index2 < results.size(); index2++){
+        //         Set<String> possibleNewSubstrings = maximalCommonSubstrings(results.get(0), input.get(index));
+        //         // possibleNewSubstrings.forEach((element) -> System.out.println(element));
+
+        //         if(possibleNewSubstrings.size() == 0){
+        //             results.remove(0);
+        //             // continue;
+        //         }else{
+        //             results.add(possibleNewSubstrings.iterator().next());
+        //             results.remove(0);
+        //         }
+        //     }
+        // }
+
+        return results;
     }
 
     public static Set<String> maximalCommonSubstrings(String s, String t){
