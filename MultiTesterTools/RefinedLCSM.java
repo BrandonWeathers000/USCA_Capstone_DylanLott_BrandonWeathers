@@ -11,10 +11,8 @@ import java.util.Set;
  * @author Dylan Lott
  * @author Brandon Weathers
  * <hr>
- * WARNING: This classes posses inneffiences that I am disatsfied with.
- * I must rewrite this algorithm to imporve its preformance.
- *
- * This class provies methods a single substring amoung an non-zero number of input strings.
+ * After extensive working and reworking. I have produced an algorithm that find
+ * the common substring amoung any given number of input strings.
  */
 
 public class RefinedLCSM{
@@ -24,7 +22,7 @@ public class RefinedLCSM{
      *
      * @param args command-line arguments not used
      */
-    public static void main(String[] args){
+     public static void main(String[] args){
         ArrayList<String> input = new ArrayList<>();
 
         // input.add("Bo1abc");
@@ -38,38 +36,45 @@ public class RefinedLCSM{
         input.add("Bobby1abc");
         input.add("Bobby2abc");
         input.add("Bobby3abc");
-        input.add("Bobby4abc");
 
         ArrayList<String> results = new ArrayList<>();
         results = returnAllSubstringMultiInput(input);
         results.forEach((currentPassword) -> System.out.print(currentPassword + ", "));
     }
 
+
     public static ArrayList<String> returnAllSubstringMultiInput(ArrayList<String> input){;
+        System.out.println("The inputs are:");
+        input.forEach((element) -> System.out.println(element));
+
         ArrayList<String> results = new ArrayList<>();
         Set<String> firstComparison = maximalCommonSubstrings(input.get(0), input.get(1));
 
         for(String currentSubstring : firstComparison){
-            results.add(currentSubstring);
+                results.add(currentSubstring);
         }
 
-        input.forEach((element) -> System.out.println(element));
-        results.forEach((element) -> System.out.println(element));
+        // System.out.println("The results of the first comparison are:");
+        // results.forEach((element) -> System.out.println(element));
 
-        // for(int index = 2; index < input.size(); index++){
-        //     for(int index2 = 0; index2 < results.size(); index2++){
-        //         Set<String> possibleNewSubstrings = maximalCommonSubstrings(results.get(0), input.get(index));
-        //         // possibleNewSubstrings.forEach((element) -> System.out.println(element));
+        for(int index = 2; index < input.size(); index++){
+                Set<String> newResults = new HashSet<>();
+                for(String currentOldResult : results){
+                        // Set<String> additionalResults = new HashSet<>();
+                        // additionalResults = maximalCommonSubstrings(input.get(index), currentOldResult);
+                        // newResults.addAll(additionalResults);
 
-        //         if(possibleNewSubstrings.size() == 0){
-        //             results.remove(0);
-        //             // continue;
-        //         }else{
-        //             results.add(possibleNewSubstrings.iterator().next());
-        //             results.remove(0);
-        //         }
-        //     }
-        // }
+                        newResults.addAll(maximalCommonSubstrings(input.get(index), currentOldResult));
+
+                        // System.out.println("When compared to the third string the new results are:");
+                        // newResults.forEach((element) -> System.out.println(element));
+                }
+
+                results.clear();
+                for(String currentSubstring : newResults){
+                        results.add(currentSubstring);
+                }
+        }
 
         return results;
     }
@@ -95,6 +100,7 @@ public class RefinedLCSM{
                 }
             }
         }
+
         // for(int[] row : table){
         //     for(int cell : row){
         //         System.out.print(cell + " ");
