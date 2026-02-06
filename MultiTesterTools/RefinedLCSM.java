@@ -44,8 +44,8 @@ public class RefinedLCSM{
 
 
     public static ArrayList<String> returnAllSubstringMultiInput(ArrayList<String> input){;
-        System.out.println("The inputs are:");
-        input.forEach((element) -> System.out.println(element));
+        // System.out.println("The inputs are:");
+        // input.forEach((element) -> System.out.println(element));
 
         ArrayList<String> results = new ArrayList<>();
         Set<String> firstComparison = maximalCommonSubstrings(input.get(0), input.get(1));
