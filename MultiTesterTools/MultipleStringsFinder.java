@@ -77,7 +77,7 @@ public class MultipleStringsFinder{
      * @param input1 the first string you wish to analyse
      * @param input2 the second string you wish to analyse
      */
-    static void recursiveFindLongestCommonSubstring(String input1, String input2, ArrayList<String> allSubstrings){
+    public static void recursiveFindLongestCommonSubstring(String input1, String input2, ArrayList<String> allSubstrings){
         // System.out.println("Input 1: " + input1 + "\nInput 2: " + input2);
         String treeInput = input1 + "#" + input2 + "$";
 

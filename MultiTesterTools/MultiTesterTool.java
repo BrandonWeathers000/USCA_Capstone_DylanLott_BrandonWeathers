@@ -87,7 +87,7 @@ public class MultiTesterTool{
         System.out.println("Please choosing the following method to analyse the previous input:");
         System.out.println("\t1) EPSB");
         System.out.println("\t2) The longest a common substring amoung all inputs");
-        System.out.println("\t3) Multiple common substrings (with squashing)");
+        System.out.println("\t3) Multiple common substrings with squashing (two specific string inputs)");
         System.out.println("\tr) Read in a new set of passwords");
         System.out.println("\tq) Quit the program");
     }
@@ -127,7 +127,7 @@ public class MultiTesterTool{
         RefinedLCSM myRefinedLCSM = new RefinedLCSM();
         List<String> results = new ArrayList<>();
 
-        results = RefinedLCSM.returnAllCommonSubstrings(userPasswords);
+        results = RefinedLCSM.returnAllSubstringMultiInput(userPasswords);
 
         if(results.size() == 0){
             // System.out.println("No common substrings.");
