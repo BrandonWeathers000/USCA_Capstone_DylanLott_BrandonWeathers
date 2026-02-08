@@ -33,7 +33,7 @@ class Mini_LCSM_Testing{
             String finialAnswer = CLCSSM(X, Y_1, Y_2, P, m, n_1, n_2, r, M);
         }
         long endTime = System.nanoTime();
-        System.out.println("The LCMS algorithm takes " + (endTime-startTime)/1000000 + " miliseconds for 2 entries 100 times.");
+        System.out.println("The Summer LCMS algorithm takes " + (endTime-startTime)/1000000 + " miliseconds for 2 entries 100 times.");
     }
 
     static String  CLCSSM(String X, String Y_1, String Y_2, String P, int m, int n_1, int n_2, int r, int[][][][] M){
