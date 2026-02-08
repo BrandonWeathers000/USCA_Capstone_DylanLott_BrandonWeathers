@@ -124,11 +124,11 @@ public class EPSB{
         System.out.printf("Mode number of capitals are:    %d    | Mode number of lower case letters are:    %d\n\n", getMode(capitals), getMode(letters));
 
         System.out.printf("[LETTERS]                              [NUMBERS]\n");
-        System.out.printf("Minimum number of letters are: %d    | Minimum number of numbers are: %d\n", letters.get(0), numbers.get(0));
-        System.out.printf("Maximum number of letters are: %d    | Maximum number of numbers are: %d\n", letters.get(letters.size()-1), numbers.get(numbers.size()-1));
-        System.out.printf("Average number of letters are: %.2f | Average number of numbers are: %.2f\n", getAverage(letters), getAverage(numbers));
-        System.out.printf("Median number of letters are:  %d    | Median number of numbers are:  %d\n", getMedian(letters), getMedian(numbers));
-        System.out.printf("Mode number of letters are:    %d    | Mode number of numbers are:    %d\n\n", getMode(letters), getMode(numbers));
+        System.out.printf("Minimum number of letters are: %d     | Minimum number of numbers are: %d\n", letters.get(0), numbers.get(0));
+        System.out.printf("Maximum number of letters are: %d     | Maximum number of numbers are: %d\n", letters.get(letters.size()-1), numbers.get(numbers.size()-1));
+        System.out.printf("Average number of letters are: %.2f  | Average number of numbers are: %.2f\n", getAverage(letters), getAverage(numbers));
+        System.out.printf("Median number of letters are:  %d     | Median number of numbers are:  %d\n", getMedian(letters), getMedian(numbers));
+        System.out.printf("Mode number of letters are:    %d     | Mode number of numbers are:    %d\n\n", getMode(letters), getMode(numbers));
 
         System.out.printf("[SYMBOLS]                              [LENGTH]\n");
         System.out.printf("Minimum number of symbols are: %d     | Minimum length is: %d\n", symbols.get(0), length.get(0));

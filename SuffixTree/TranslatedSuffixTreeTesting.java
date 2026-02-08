@@ -8,6 +8,17 @@ class TranslatedSuffixTreeTesting{
             TranslatedSuffixTree tree = new TranslatedSuffixTree();
             tree.size1 = tree.lengthOfFirstInput("ancplucaskai99ancplucaskai99");
             tree.setInputString("ancplucaskai99ancplucaskai997");
+
+            // This algorithm excels are many inputs. Uncomment and run testing script to see!
+            // tree.setInputString("ancplucaskai99ancplucaskai997");
+            // tree.setInputString("ancplucaskai99ancplucaskai997");
+            // tree.setInputString("ancplucaskai99ancplucaskai997");
+            // tree.setInputString("ancplucaskai99ancplucaskai997");
+            // tree.setInputString("ancplucaskai99ancplucaskai997");
+            // tree.setInputString("ancplucaskai99ancplucaskai997");
+            // tree.setInputString("ancplucaskai99ancplucaskai997");
+            // tree.setInputString("ancplucaskai99ancplucaskai997");
+            // tree.setInputString("ancplucaskai99ancplucaskai997");
             tree.buildSuffixTree();
             tree.getLongestCommonSubstringTesting();
         }
