@@ -119,9 +119,9 @@ public class EPSB{
         System.out.printf("[CAPITALS]                             [LOWER CASE]\n");
         System.out.printf("Minimum number of capitals are: %d    | Minimum number of lower case letters are: %d\n", capitals.get(0), lowerCase.get(0));
         System.out.printf("Maximum number of capitals are: %d    | Maximum number of lower case letters are: %d\n", capitals.get(capitals.size()-1), lowerCase.get(lowerCase.size()-1));
-        System.out.printf("verage number of capitals are:  %.2f | Average number of lower case letters are: %.2f\n", getAverage(capitals), getAverage(lowerCase));
+        System.out.printf("Average number of capitals are: %.2f | Average number of lower case letters are: %.2f\n", getAverage(capitals), getAverage(lowerCase));
         System.out.printf("Median number of capitals are:  %d    | Median number of lower case letters are:  %d\n", getMedian(capitals) ,getMedian(lowerCase));
-        System.out.printf("Mode number of capitals are:    %d    | Mode number of lower case letters are:    %d\n\n", getMode(capitals), getMode(letters));
+        System.out.printf("Mode number of capitals are:    %d    | Mode number of lower case letters are:    %d\n\n", getMode(capitals), getMode(lowerCase));
 
         System.out.printf("[LETTERS]                              [NUMBERS]\n");
         System.out.printf("Minimum number of letters are: %d     | Minimum number of numbers are: %d\n", letters.get(0), numbers.get(0));
