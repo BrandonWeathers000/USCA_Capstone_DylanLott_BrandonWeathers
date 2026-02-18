@@ -81,7 +81,7 @@ public class EPSB_Grapher extends Canvas
         // Max, min, mean, median, and mode points
         g.fillOval(300 - (10 / 2), maximumCapitals - (10 / 2), 10, 10);
         g.fillOval(300 - (10 / 2), minumumCapitals - (10 / 2), 10, 10);
-        g.drawString("*", 300 - fm.stringWidth("*")/2, meanCapitals);
+        g.drawString("*", 300 - fm.stringWidth("*")/2, meanCapitals + ((fm.getAscent() - fm.getDescent()) / 2));
         g.fillOval(300 - (10 / 2), medianCapitals - (10 / 2), 10, 10);
         g.drawString("@", 300 - fm.stringWidth("@")/2, modeCapitals + ((fm.getAscent() - fm.getDescent()) / 2));
         // End of capitals
@@ -105,7 +105,7 @@ public class EPSB_Grapher extends Canvas
         // Max, min, mean, median, and mode points
         g.fillOval(600 - (10 / 2), maximumLowerCase - (10 / 2), 10, 10);
         g.fillOval(600 - (10 / 2), minumumLowerCase - (10 / 2), 10, 10);
-        g.drawString("*", 600 - fm.stringWidth("*")/2, meanLowerCase);
+        g.drawString("*", 600 - fm.stringWidth("*")/2, meanLowerCase + ((fm.getAscent() - fm.getDescent()) / 2));
         g.fillOval(600 - (10 / 2), medianLowerCase - (10 / 2), 10, 10);
         g.drawString("@", 600 - fm.stringWidth("@")/2, modeLowerCase + ((fm.getAscent() - fm.getDescent()) / 2));
         // End of lower case
@@ -129,7 +129,7 @@ public class EPSB_Grapher extends Canvas
         // Max, min, mean, median, and mode points
         g.fillOval(900 - (10 / 2), maximumLetters - (10 / 2), 10, 10);
         g.fillOval(900 - (10 / 2), minumumLetters - (10 / 2), 10, 10);
-        g.drawString("*", 900 - fm.stringWidth("*")/2, meanLetters);
+        g.drawString("*", 900 - fm.stringWidth("*")/2, meanLetters + ((fm.getAscent() - fm.getDescent()) / 2));
         g.fillOval(900 - (10 / 2), medianLetters - (10 / 2), 10, 10);
         g.drawString("@", 900 - fm.stringWidth("@")/2, modeLetters + ((fm.getAscent() - fm.getDescent()) / 2));
         // End of letters
@@ -153,7 +153,7 @@ public class EPSB_Grapher extends Canvas
         // Max, min, mean, median, and mode points
         g.fillOval(1200 - (10 / 2), maximumDigits - (10 / 2), 10, 10);
         g.fillOval(1200 - (10 / 2), minumumDigits - (10 / 2), 10, 10);
-        g.drawString("*", 1200 - fm.stringWidth("*")/2, meanDigits);
+        g.drawString("*", 1200 - fm.stringWidth("*")/2, meanDigits + ((fm.getAscent() - fm.getDescent()) / 2));
         g.fillOval(1200 - (10 / 2), medianDigits - (10 / 2), 10, 10);
         g.drawString("@", 1200 - fm.stringWidth("@")/2, modeDigits + ((fm.getAscent() - fm.getDescent()) / 2));
         // End of digits
@@ -177,7 +177,7 @@ public class EPSB_Grapher extends Canvas
         // Max, min, mean, median, and mode points
         g.fillOval(1500 - (10 / 2), maximumSymbols - (10 / 2), 10, 10);
         g.fillOval(1500 - (10 / 2), minumumSymbols - (10 / 2), 10, 10);
-        g.drawString("*", 1500 - fm.stringWidth("*")/2, meanSymbols);
+        g.drawString("*", 1500 - fm.stringWidth("*")/2, meanSymbols + ((fm.getAscent() - fm.getDescent()) / 2));
         g.fillOval(1500 - (10 / 2), medianSymbols - (10 / 2), 10, 10);
         g.drawString("@", 1500 - fm.stringWidth("@")/2, modeSymbols + ((fm.getAscent() - fm.getDescent()) / 2));
         // End of symbols
@@ -201,7 +201,7 @@ public class EPSB_Grapher extends Canvas
         // Max, min, mean, median, and mode points
         g.fillOval(1800 - (10 / 2), maximumLength - (10 / 2), 10, 10);
         g.fillOval(1800 - (10 / 2), minumumLength - (10 / 2), 10, 10);
-        g.drawString("*", 1800 - fm.stringWidth("*")/2, meanLength);
+        g.drawString("*", 1800 - fm.stringWidth("*")/2, meanLength + ((fm.getAscent() - fm.getDescent()) / 2));
         g.fillOval(1800 - (10 / 2), medianLength - (10 / 2), 10, 10);
         g.drawString("@", 1800 - fm.stringWidth("@")/2, modeLength + ((fm.getAscent() - fm.getDescent()) / 2));
         // End of Length
