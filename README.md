@@ -19,6 +19,9 @@ The following instructions only work on Linux and MacOS (actually I'm not sure a
 2. cd /USCA_Capstone_DylanLott_BrandonWeathers/
 3. ./TestingScript.sh
 
+# Example of Stastical Analysis
+<img alt="StasticalAnalysis" src="./ExampleOfGraphedPasswords.png">
+
 ## Notes
 For reasons that I don't completely understand, the multiple substrings algorithm is a bit slower.
 Really, I think it may be something with the string concatenation or perhaps the way Java references objects and their methods.
