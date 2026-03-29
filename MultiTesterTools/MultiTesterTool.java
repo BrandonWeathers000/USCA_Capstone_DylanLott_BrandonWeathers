@@ -3,7 +3,7 @@ package MultiTesterTools;
 import java.util.*;
 
 /**
- * @version 1.0
+ * @version 2.0
  * @author Dylan Lott
  * @author Brandon Weathers
  * <hr>
@@ -41,6 +41,8 @@ public class MultiTesterTool{
                 case "1" -> useEPSB(userPasswords);
                 case "2" -> useRefinedLCSM(userPasswords);
                 case "3" -> useSuffixTree(userPasswords);
+                case "4" -> useLev(userPasswords);
+                case "5" -> useJac(userPasswords);
                 case "r" -> { System.out.println("\033[H\033[2J"); readInUserPasswords(userPasswords); }
                 case "q" -> System.out.println("Exiting");
                 case ""  -> System.out.print(">>> ");
@@ -88,6 +90,8 @@ public class MultiTesterTool{
         System.out.println("\t1) EPSB");
         System.out.println("\t2) The longest a common substring amoung all inputs");
         System.out.println("\t3) Multiple common substrings with squashing (two specific string inputs)");
+        System.out.println("\t4) Calculate the Levenshtein distance");
+        System.out.println("\t5) Calculate the Jaccard distance");
         System.out.println("\tr) Read in a new set of passwords");
         System.out.println("\tq) Quit the program");
     }
@@ -182,6 +186,50 @@ public class MultiTesterTool{
         System.out.println("Press enter to continue.");
         String waitingForUser1 = ob.nextLine();
         waitingForUser1 = ob.nextLine();
+        System.out.println("\033[H\033[2J");
+
+        printMainMenu(userPasswords);
+        System.out.print(">>> ");
+    }
+
+    /**
+     * Calculates the top two passwords' Levenshtein distance
+     *
+     * @param userPasswords the blank (or old) list of user passwords
+     */
+    public static void useLev(ArrayList<String> userPasswords){
+        System.out.println("\033[H\033[2J");
+        Scanner ob = new Scanner(System.in);
+
+        int firstLev = Levenshtein.lev(userPasswords.get(0), userPasswords.get(1));
+
+        System.out.println("\tLevenshtein distance: " + firstLev); 
+
+        System.out.println();
+        System.out.println("Press enter to continue.");
+        String waitingForUser1 = ob.nextLine();
+        System.out.println("\033[H\033[2J");
+
+        printMainMenu(userPasswords);
+        System.out.print(">>> ");
+    }
+
+    /**
+     * Compares the first and second entry of the given password list using the Jaccard similarity index.
+     *
+     * @param userPasswords the blank (or old) list of user passwords
+     */
+    public static void useJac(ArrayList<String> userPasswords) {
+        System.out.println("\033[H\033[2J");
+        Scanner ob = new Scanner(System.in);
+
+        double firstJac = Jaccard.jac(userPasswords.get(0), userPasswords.get(1));
+
+        System.out.println("\tJaccard distance: " + firstJac);
+
+        System.out.println();
+        System.out.println("Press enter to continue.");
+        String waitingForUser1 = ob.nextLine();
         System.out.println("\033[H\033[2J");
 
         printMainMenu(userPasswords);
