@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 class Levenshtein{
     public static void main(String[] args) {
-        String inputOne = "a", inputTwo = "b";
+        String inputOne = "asdf", inputTwo = "sdfg";
         System.out.println("\nThe lev distance is: " + lev(inputOne, inputTwo));
     }
 
