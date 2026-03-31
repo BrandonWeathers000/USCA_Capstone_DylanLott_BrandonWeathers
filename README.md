@@ -18,12 +18,12 @@ I'm proud to announce that our the Multi Tester Tool is has officially reached v
 The Multi Tester Tool now has the following features:
 
 1. EPSB
-2. The longest a common substring amoung all inputs
+2. The longest a common substring among all inputs
 3. Multiple common substrings with squashing (two specific string inputs)
-4. Calculate the Levenshtein distance (between the first two passwords)
-5. Calculate the Jaccard distance (between the first two passwords)
+4. Calculate the average Levenshtein distance
+5. Calculate the average Jaccard distance
 
-Ovcourse, all of these features are compatable with the list of (any size) of strings that the user provides.
+Of course, all of these features are compatible with the list of (any size) of strings that the user provides.
 
 ## How to Run: Testing the Algorithm's Speed on Different Machines 
 I realized that on some machines the different algorithms don't scale quite right.
@@ -35,7 +35,7 @@ The following instructions only work on Linux and MacOS (actually I'm not sure a
 2. cd /USCA_Capstone_DylanLott_BrandonWeathers/
 3. ./TestingScript.sh
 
-# Example of Stastical Analysis
+# Example of Statistical Analysis
 <img alt="StasticalAnalysis" src="./ExampleOfGraphedPasswords.png">
 
 ## Notes
