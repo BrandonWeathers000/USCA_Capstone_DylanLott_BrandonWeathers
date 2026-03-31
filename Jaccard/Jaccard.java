@@ -1,11 +1,31 @@
 import java.util.*;
-import java.util.HashMap;
 
 class Jaccard {
     public static void main(String[] args) {
-        String inputOne = "abc", inputTwo  = "bcd";
+        String inputOne = "ABC", inputTwo = "BCD", inputThree = "CDE", inputFour = "ABC";
 
-        System.out.println(jac(inputOne, inputTwo));
+        // System.out.println(jac(inputOne, inputTwo));
+
+        ArrayList<String> inputArrayList = new ArrayList<String>();
+        inputArrayList.add(inputOne);
+        inputArrayList.add(inputTwo);
+        inputArrayList.add(inputThree);
+        inputArrayList.add(inputFour);
+
+        System.out.printf("The average jac distance (rounded to two decimals) is: %.2f", multiJac(inputArrayList));
+    }
+
+    static double multiJac(ArrayList<String> userPasswords) {
+        double totalJac = 0;
+        for(int i = 0; i < userPasswords.size(); i++) {
+            for(int j = 0; j < userPasswords.size(); j++) {
+                if (i != j) {
+                    System.out.println(userPasswords.get(i) + " + " + userPasswords.get(j) + " = " + jac(userPasswords.get(i), userPasswords.get(j)));
+                    totalJac += jac(userPasswords.get(i), userPasswords.get(j));
+                }
+            }
+        }
+        return totalJac / ((double) ((userPasswords.size() * userPasswords.size()) - userPasswords.size()));
     }
 
     static double jac(String a, String b) {
