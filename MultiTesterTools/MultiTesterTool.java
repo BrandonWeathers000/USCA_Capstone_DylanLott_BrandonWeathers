@@ -90,8 +90,8 @@ public class MultiTesterTool{
         System.out.println("\t1) EPSB");
         System.out.println("\t2) The longest a common substring amoung all inputs");
         System.out.println("\t3) Multiple common substrings with squashing (two specific string inputs)");
-        System.out.println("\t4) Calculate the Levenshtein distance");
-        System.out.println("\t5) Calculate the Jaccard distance");
+        System.out.println("\t4) Calculate the average Levenshtein distance");
+        System.out.println("\t5) Calculate the average Jaccard distance");
         System.out.println("\tr) Read in a new set of passwords");
         System.out.println("\tq) Quit the program");
     }
@@ -201,12 +201,12 @@ public class MultiTesterTool{
         System.out.println("\033[H\033[2J");
         Scanner ob = new Scanner(System.in);
 
-        int firstLev = Levenshtein.lev(userPasswords.get(0), userPasswords.get(1));
+        double averageLev = Levenshtein.multiLev(userPasswords);
 
-        System.out.println("\tLevenshtein distance: " + firstLev); 
+        System.out.printf("Average Levenshtein distance: %.2f",  averageLev); 
 
         System.out.println();
-        System.out.println("Press enter to continue.");
+        System.out.println("\nPress enter to continue.");
         String waitingForUser1 = ob.nextLine();
         System.out.println("\033[H\033[2J");
 
@@ -223,12 +223,12 @@ public class MultiTesterTool{
         System.out.println("\033[H\033[2J");
         Scanner ob = new Scanner(System.in);
 
-        double firstJac = Jaccard.jac(userPasswords.get(0), userPasswords.get(1));
+        double firstJac = Jaccard.multiJac(userPasswords);
 
-        System.out.println("\tJaccard distance: " + firstJac);
+        System.out.printf("Jaccard distance: %.2f", firstJac);
 
         System.out.println();
-        System.out.println("Press enter to continue.");
+        System.out.println("\nPress enter to continue.");
         String waitingForUser1 = ob.nextLine();
         System.out.println("\033[H\033[2J");
 
