@@ -1,3 +1,5 @@
+package MultiTesterTools;
+
 import java.util.*;
 
 class Jaccard {
@@ -20,7 +22,7 @@ class Jaccard {
         for(int i = 0; i < userPasswords.size(); i++) {
             for(int j = 0; j < userPasswords.size(); j++) {
                 if (i != j) {
-                    System.out.println(userPasswords.get(i) + " + " + userPasswords.get(j) + " = " + jac(userPasswords.get(i), userPasswords.get(j)));
+                    // System.out.println(userPasswords.get(i) + " + " + userPasswords.get(j) + " = " + jac(userPasswords.get(i), userPasswords.get(j)));
                     totalJac += jac(userPasswords.get(i), userPasswords.get(j));
                 }
             }
