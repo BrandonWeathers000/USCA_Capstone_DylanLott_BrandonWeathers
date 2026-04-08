@@ -20,7 +20,7 @@ class TranslatedSuffixTreeTesting{
             // tree.setInputString("ancplucaskai99ancplucaskai997");
             // tree.setInputString("ancplucaskai99ancplucaskai997");
             tree.buildSuffixTree();
-            tree.getLongestCommonSubstringTesting();
+           System.out.println(tree.getLongestCommonSubstring()); 
         }
         long endTime = System.nanoTime();
         System.out.println("The suffix tree algorithm takes " + (endTime-startTime)/1000000 + " miliseconds comparing 2 entries 100 times.");
