@@ -21,6 +21,7 @@ public class FullAnalysisDriver {
         ArrayList<EPSB> epsbList = new ArrayList<>();
         ArrayList<Double> jacList = new ArrayList<>();
         ArrayList<String> lcsmList = new ArrayList<>();
+        Double levInfo = new Double(-1.0);
 
         // Filling in and printing (the first line) the string matrix 2D ArrayList
         try {
@@ -31,23 +32,23 @@ public class FullAnalysisDriver {
         }catch(FileNotFoundException e) {
             System.out.println("File not found. ✗");
         }
-
-        // printSingleLine(stringMatrix.get(1));
-        lcsmList = getLcsmList(stringMatrix);
-        for(int i = 0; i < stringMatrix.size(); i++) {
-            printSingleLine(stringMatrix.get(i));
-            System.out.println(lcsmList.get(i));
-        }
+        printSingleLine(stringMatrix.get(0));
 
         // Filling in and printing (the first line) the EPSB ArrayList
-        // epsbList = EpsbListMaker.getAnEpsbList(stringMatrix);
-        // epsbList.get(0).getInfo();
+        epsbList = EpsbListMaker.getAnEpsbList(stringMatrix);
+        epsbList.get(0).getInfo();
 
         // Filling in and printing (the first line) the Jaccard ArrayList
-        // jacList = JacListMaker.getJacList(stringMatrix);
-        // System.out.printf("The rounded jac is: %.2f", jacList.get(0));
+        jacList = JacListMaker.getJacList(stringMatrix);
+        System.out.printf("The rounded jac is: %.2f\n", jacList.get(0));
 
         // Filling in and printing (the first line) the LCSM ArrayList
+        lcsmList = TranslatedSuffixTreeListMaker.getTranslatedSuffixTreeList(stringMatrix);
+        System.out.println("The longest common substring is: " + lcsmList.get(0));
+
+        // Filling in and printing (the first line) the Lev ArrayList
+        levInfo = getLevList(stringMatrix, 0);
+        System.out.printf("Lev distance: %.2f\n", levInfo);
     }
 
     static void printSingleLine(ArrayList<String> inputArrayList) {
@@ -55,24 +56,14 @@ public class FullAnalysisDriver {
         inputArrayList.forEach((word) -> System.out.println("\t- " + word));
     }
 
-    static ArrayList<String> getLcsmList(ArrayList<ArrayList<String>> stringMatrix) {
-        ArrayList<String> returnList = new ArrayList<>();
+    // This method is SOOO resource intensive that its time complexity is...
+    // O(number of databse entires * number of passwords in an entry ^ length of longest password)
+    // I can't even parse the second entry in a resonable amout of time
+    // But can I with other entries
+    // So I'm not going to go through each line of the databse; it would take days.
+    static Double getLevList(ArrayList<ArrayList<String>> stringMatrix, int entryToBeAnalyzed) {
+        Double levInfo = Levenshtein.multiLev(stringMatrix.get(entryToBeAnalyzed));
 
-        for(ArrayList<String> currentLine : stringMatrix) {
-            TranslatedSuffixTree tree = new TranslatedSuffixTree();
-            tree.size1 = tree.lengthOfFirstInput(currentLine.get(0) + "#" + currentLine.get(1) + "$");
-            tree.setInputString(currentLine.get(0) + "#" + currentLine.get(1) + "$");
-            tree.buildSuffixTree();
-            String currentMatch = tree.getLongestCommonSubstring();
-
-            TranslatedSuffixTree tree2 = new TranslatedSuffixTree();
-            tree.size1 = tree.lengthOfFirstInput(currentMatch + "#" + currentLine.get(2) + "$");
-            tree.setInputString(currentMatch + "#" + currentLine.get(2) + "$");
-            tree.buildSuffixTree();
-            currentMatch = tree.getLongestCommonSubstring();
-            returnList.add(currentMatch);
-        }
-
-        return returnList;
+        return levInfo;
     }
 }

@@ -200,7 +200,7 @@ class TranslatedSuffixTree{
             result = result + text[k + substringStartIndex[0]];
         }
         if(k == 0){
-            System.out.println("No common substring");
+            // System.out.println("No common substring");
             totalEntries++;
             return "";
         }
