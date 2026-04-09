@@ -2,8 +2,11 @@ import java.util.*;
 import java.io.*;
 
 /**
- * NOTE: I have finished the string 2D ArrayList and the 1D EPSB ArrayList and Jaccard, Multi-LCSM (SuffixTree)
- * TODO: Levenshtein info
+ * @version 1.0
+ * @author Dylan Lott
+ * @author Brandon Weathers
+ * <hr>
+ * NOTE: I have finished the string 2D ArrayList and the 1D EPSB ArrayList and Jaccard, Multi-LCSM (SuffixTree), and Levenstein dist
  *
  * My plan is to create a mini database where you have a matrix of strings and then a stiched together 2D matrix of all the info EPSB, Jaccard, LCSM, etc.
  * I can then query all of this info whenever I want.
@@ -14,56 +17,58 @@ import java.io.*;
 
 public class FullAnalysisDriver {
     public static void main(String[] args) {
-
         // All important info matrices
         CsvParser myCsvParser = new CsvParser();
         ArrayList<ArrayList<String>> stringMatrix = new ArrayList<>();
         ArrayList<EPSB> epsbList = new ArrayList<>();
         ArrayList<Double> jacList = new ArrayList<>();
         ArrayList<String> lcsmList = new ArrayList<>();
-        Double levInfo = new Double(-1.0);
+        ArrayList<Double> levList = new ArrayList<>();
 
+        // Sample database "../Datasets/Synthetic300000PwPairsV2.csv"
+        init(
+             myCsvParser,
+             "../Datasets/Synthetic300000PwPairsV2.csv",
+             stringMatrix,
+             epsbList,
+             jacList,
+             lcsmList,
+             levList,
+             1
+            );
+    }
+
+    static void init(CsvParser myCsvParser, String inputDatabase, ArrayList<ArrayList<String>> stringMatrix, ArrayList<EPSB> epsbList, ArrayList<Double> jacList, ArrayList<String> lcsmList, ArrayList<Double> levList, int caseNumber) {
         // Filling in and printing (the first line) the string matrix 2D ArrayList
         try {
-            Scanner myScanner = new Scanner(new File("../Datasets/DataGeneration9_16_25Part2.csv"));
+            Scanner myScanner = new Scanner(new File(inputDatabase));
             System.out.println("Reading in file...");
             stringMatrix = myCsvParser.readInStringMatrix(myScanner);
-            System.out.println("File read complete ✓");
+            System.out.println("File read complete ✓\n");
         }catch(FileNotFoundException e) {
-            System.out.println("File not found. ✗");
+            System.out.println("File not found. ✗\n");
         }
-        printSingleLine(stringMatrix.get(0));
+        printSingleLine(stringMatrix.get(caseNumber));
 
         // Filling in and printing (the first line) the EPSB ArrayList
-        epsbList = EpsbListMaker.getAnEpsbList(stringMatrix);
-        epsbList.get(0).getInfo();
+        epsbList = EPSB.getAnEpsbList(stringMatrix);
+        epsbList.get(caseNumber).getInfo();
 
         // Filling in and printing (the first line) the Jaccard ArrayList
-        jacList = JacListMaker.getJacList(stringMatrix);
-        System.out.printf("The rounded jac is: %.2f\n", jacList.get(0));
+        jacList = Jaccard.getJacList(stringMatrix);
+        System.out.printf("The rounded jac is: %.1f\n", jacList.get(caseNumber));
 
         // Filling in and printing (the first line) the LCSM ArrayList
-        lcsmList = TranslatedSuffixTreeListMaker.getTranslatedSuffixTreeList(stringMatrix);
-        System.out.println("The longest common substring is: " + lcsmList.get(0));
+        lcsmList = TranslatedSuffixTree.getTranslatedSuffixTreeList(stringMatrix);
+        System.out.println("The longest common substring is: " + lcsmList.get(caseNumber));
 
         // Filling in and printing (the first line) the Lev ArrayList
-        levInfo = getLevList(stringMatrix, 0);
-        System.out.printf("Lev distance: %.2f\n", levInfo);
+        levList = Levenshtein.getLevList(stringMatrix);
+        System.out.printf("Lev distance: %.1f\n", levList.get(caseNumber));
     }
 
     static void printSingleLine(ArrayList<String> inputArrayList) {
         System.out.println("Here is the content of the array list");
         inputArrayList.forEach((word) -> System.out.println("\t- " + word));
-    }
-
-    // This method is SOOO resource intensive that its time complexity is...
-    // O(number of databse entires * number of passwords in an entry ^ length of longest password)
-    // I can't even parse the second entry in a resonable amout of time
-    // But can I with other entries
-    // So I'm not going to go through each line of the databse; it would take days.
-    static Double getLevList(ArrayList<ArrayList<String>> stringMatrix, int entryToBeAnalyzed) {
-        Double levInfo = Levenshtein.multiLev(stringMatrix.get(entryToBeAnalyzed));
-
-        return levInfo;
     }
 }

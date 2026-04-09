@@ -247,4 +247,25 @@ class TranslatedSuffixTree{
         }
         return -1;
     }
+
+    static ArrayList<String> getTranslatedSuffixTreeList(ArrayList<ArrayList<String>> stringMatrix) {
+        ArrayList<String> returnList = new ArrayList<>();
+
+        for(ArrayList<String> currentLine : stringMatrix) {
+            TranslatedSuffixTree tree = new TranslatedSuffixTree();
+            tree.size1 = tree.lengthOfFirstInput(currentLine.get(0) + "#" + currentLine.get(1) + "$");
+            tree.setInputString(currentLine.get(0) + "#" + currentLine.get(1) + "$");
+            tree.buildSuffixTree();
+            String currentMatch = tree.getLongestCommonSubstring();
+
+            // TranslatedSuffixTree tree2 = new TranslatedSuffixTree();
+            // tree.size1 = tree.lengthOfFirstInput(currentMatch + "#" + currentLine.get(2) + "$");
+            // tree.setInputString(currentMatch + "#" + currentLine.get(2) + "$");
+            // tree.buildSuffixTree();
+            // currentMatch = tree.getLongestCommonSubstring();
+            returnList.add(currentMatch);
+        }
+
+        return returnList;
+    }
 }
