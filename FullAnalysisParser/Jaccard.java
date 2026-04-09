@@ -1,10 +1,8 @@
-package MultiTesterTools;
-
 import java.util.*;
 
 class Jaccard {
     public static void main(String[] args) {
-        String inputOne = "ABC", inputTwo = "BCD", inputThree = "CDE", inputFour = "ABC";
+        String inputOne = "password1", inputTwo = "password2", inputThree = "password3";
 
         // System.out.println(jac(inputOne, inputTwo));
 
@@ -12,7 +10,6 @@ class Jaccard {
         inputArrayList.add(inputOne);
         inputArrayList.add(inputTwo);
         inputArrayList.add(inputThree);
-        inputArrayList.add(inputFour);
 
         System.out.printf("The average jac distance (rounded to two decimals) is: %.2f", multiJac(inputArrayList));
     }
@@ -61,5 +58,13 @@ class Jaccard {
         }
 
         return ans.toString();
+    }
+
+    public static ArrayList<Double> getJacList(ArrayList<ArrayList<String>> stringMatrix) {
+        ArrayList<Double> jacList = new ArrayList<>();
+        for(ArrayList<String> currentEntry : stringMatrix) {
+            jacList.add(Jaccard.multiJac(currentEntry));
+        }
+        return jacList;
     }
 }

@@ -1,3 +1,5 @@
+package MultiTesterTools;
+
 import java.util.*;
 
 class Levenshtein{
@@ -21,7 +23,7 @@ class Levenshtein{
         for(int i = 0; i < userPasswords.size(); i++) {
             for(int j = 0; j < userPasswords.size(); j++) {
                 if (i != j) {
-                    System.out.println(userPasswords.get(i) + " + " + userPasswords.get(j) + " = " + lev(userPasswords.get(i), userPasswords.get(j)));
+                    // System.out.println(userPasswords.get(i) + " + " + userPasswords.get(j) + " = " + lev(userPasswords.get(i), userPasswords.get(j)));
                     totalLev += lev(userPasswords.get(i), userPasswords.get(j));
                 }
             }
