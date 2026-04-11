@@ -16,55 +16,64 @@ import java.io.*;
  */
 
 public class FullAnalysisDriver {
+    // All important info matrices
+    static CsvParser myCsvParser = new CsvParser();
+    static ArrayList<ArrayList<String>> stringMatrix = new ArrayList<>();
+    static ArrayList<EPSB> epsbList = new ArrayList<>();
+    static ArrayList<Double> jacList = new ArrayList<>();
+    static ArrayList<String> lcsmList = new ArrayList<>();
+    static ArrayList<Double> levList = new ArrayList<>();
+
     public static void main(String[] args) {
-        // All important info matrices
-        CsvParser myCsvParser = new CsvParser();
-        ArrayList<ArrayList<String>> stringMatrix = new ArrayList<>();
-        ArrayList<EPSB> epsbList = new ArrayList<>();
-        ArrayList<Double> jacList = new ArrayList<>();
-        ArrayList<String> lcsmList = new ArrayList<>();
-        ArrayList<Double> levList = new ArrayList<>();
 
         // Sample database "../Datasets/Synthetic300000PwPairsV2.csv"
-        init(
-             myCsvParser,
-             "../Datasets/Synthetic300000PwPairsV2.csv",
-             stringMatrix,
-             epsbList,
-             jacList,
-             lcsmList,
-             levList,
-             1
-            );
+        init("../Datasets/Synthetic300000PwPairsV2.csv");
+        printAnEntry(1);
     }
 
-    static void init(CsvParser myCsvParser, String inputDatabase, ArrayList<ArrayList<String>> stringMatrix, ArrayList<EPSB> epsbList, ArrayList<Double> jacList, ArrayList<String> lcsmList, ArrayList<Double> levList, int caseNumber) {
+    // Represents the line number of passwords you want to analyze
+    static void printAnEntry(int entryNumber) {
+        // Printing out various info
+        entryNumber--;
+        printSingleLine(stringMatrix.get(entryNumber));
+        epsbList.get(entryNumber).getInfo();
+        System.out.println("The longest common substring is: " + lcsmList.get(entryNumber));
+        System.out.printf("The rounded jac is: %.2f\n", jacList.get(entryNumber));
+        System.out.printf("Lev distance: %.2f\n", levList.get(entryNumber));
+    }
+
+    // static void init(int entryNumber, CsvParser myCsvParser, String inputDatabase, ArrayList<ArrayList<String>> stringMatrix, ArrayList<EPSB> epsbList, ArrayList<Double> jacList, ArrayList<String> lcsmList, ArrayList<Double> levList) {
+    static void init(String inputDatabase) {
         // Filling in and printing (the first line) the string matrix 2D ArrayList
         try {
             Scanner myScanner = new Scanner(new File(inputDatabase));
             System.out.println("Reading in file...");
             stringMatrix = myCsvParser.readInStringMatrix(myScanner);
-            System.out.println("File read complete ✓\n");
+            System.out.println("File read complete ✓");
         }catch(FileNotFoundException e) {
-            System.out.println("File not found. ✗\n");
+            System.out.println("File not found. ✗");
         }
-        printSingleLine(stringMatrix.get(caseNumber));
 
-        // Filling in and printing (the first line) the EPSB ArrayList
+        System.out.println("===========================");
+
+        System.out.println("Loading EPSB list...");
         epsbList = EPSB.getAnEpsbList(stringMatrix);
-        epsbList.get(caseNumber).getInfo();
+        System.out.println("EPSB list complete ✓");
 
-        // Filling in and printing (the first line) the Jaccard ArrayList
-        jacList = Jaccard.getJacList(stringMatrix);
-        System.out.printf("The rounded jac is: %.1f\n", jacList.get(caseNumber));
-
-        // Filling in and printing (the first line) the LCSM ArrayList
+        System.out.println("Loading LCSM...");
         lcsmList = TranslatedSuffixTree.getTranslatedSuffixTreeList(stringMatrix);
-        System.out.println("The longest common substring is: " + lcsmList.get(caseNumber));
+        System.out.println("LCSM list complete ✓");
 
-        // Filling in and printing (the first line) the Lev ArrayList
+        System.out.println("Loading Jaccard list...");
+        jacList = Jaccard.getJacList(stringMatrix);
+        System.out.println("Jaccard list complete ✓");
+
+        System.out.println("Loading Levenshtein list...");
         levList = Levenshtein.getLevList(stringMatrix);
-        System.out.printf("Lev distance: %.1f\n", levList.get(caseNumber));
+        System.out.println("Levenshtein list complete ✓");
+
+        System.out.println("===========================");
+
     }
 
     static void printSingleLine(ArrayList<String> inputArrayList) {
